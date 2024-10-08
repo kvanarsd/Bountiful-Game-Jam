@@ -12,6 +12,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private ParentManager ParentMan;
     [SerializeField] private ChildrenManager ChildMan;
 
+    public bool idle = true;
+    public bool walking = false;
+    public bool kicking = false;
+    public bool throwing = false;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
