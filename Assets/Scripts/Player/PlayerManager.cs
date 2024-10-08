@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
     public PlayerScript Player;
     [SerializeField] private PlayerFSM PlayerSM;
 
+    private Rigidbody2D rb;
+
     // other refs
     [SerializeField] private ParentManager ParentMan;
     [SerializeField] private ChildrenManager ChildMan;
@@ -22,12 +24,18 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = Player.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+        if (Input.anyKey == false)
+        {
+            idle = true;
+        }
+
     }
 }

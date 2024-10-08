@@ -4,7 +4,13 @@ using UnityEngine;
 using KevinCastejon.FiniteStateMachine;
 public class PlayerFSM : AbstractFiniteStateMachine
 {
+
+    
     public PlayerManager PlayMan { get; set; }
+
+    private Rigidbody2D rb;
+    [SerializeField] private float moveSpeed;
+    float speedX, speedY;
     public enum PlayerState
     {
         IDLE,
@@ -22,6 +28,10 @@ public class PlayerFSM : AbstractFiniteStateMachine
             AbstractState.Create<GiveState, PlayerState>(PlayerState.GIVE, this),
             AbstractState.Create<ThrowState, PlayerState>(PlayerState.THROW, this)
         );
+
+        PlayMan = transform.GetComponent<PlayerManager>();
+        rb = PlayMan.Player.GetComponent<Rigidbody2D>();
+
     }
     public class IdleState : AbstractState
     {
@@ -56,6 +66,8 @@ public class PlayerFSM : AbstractFiniteStateMachine
         }
         public override void OnUpdate()
         {
+            GetStateMachine<PlayerFSM>().speedX = Input.GetAxisRaw("Horizontal") * GetStateMachine<PlayerFSM>().moveSpeed;
+            GetStateMachine<PlayerFSM>().speedY = Input.GetAxisRaw("Vertical") * GetStateMachine<PlayerFSM>().moveSpeed;
 
             if (GetStateMachine<PlayerFSM>().PlayMan.idle)
             {
