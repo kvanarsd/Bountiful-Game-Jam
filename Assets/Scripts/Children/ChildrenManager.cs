@@ -127,7 +127,7 @@ public class ChildrenManager : MonoBehaviour
 
         // end of timer stop walking
         yield return new WaitForSeconds(timer);
-  
+  //testing
       
         // choose new state
         string state = SelectState();
