@@ -37,5 +37,21 @@ public class PlayerManager : MonoBehaviour
             idle = true;
         }
 
+        if (kicking == false && throwing == false)
+        {
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            {
+                walking = true;
+                idle = false;
+            }
+            else
+            {
+                idle = true;
+                walking = false;
+            }
+        }
+
+        
+
     }
 }

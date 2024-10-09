@@ -68,6 +68,7 @@ public class PlayerFSM : AbstractFiniteStateMachine
         {
             GetStateMachine<PlayerFSM>().speedX = Input.GetAxisRaw("Horizontal") * GetStateMachine<PlayerFSM>().moveSpeed;
             GetStateMachine<PlayerFSM>().speedY = Input.GetAxisRaw("Vertical") * GetStateMachine<PlayerFSM>().moveSpeed;
+            GetStateMachine<PlayerFSM>().rb.velocity = new Vector2(GetStateMachine<PlayerFSM>().speedX, GetStateMachine<PlayerFSM>().speedY).normalized * GetStateMachine<PlayerFSM>().moveSpeed;
 
             if (GetStateMachine<PlayerFSM>().PlayMan.idle)
             {
@@ -84,6 +85,8 @@ public class PlayerFSM : AbstractFiniteStateMachine
         }
         public override void OnExit()
         {
+            GetStateMachine<PlayerFSM>().PlayMan.idle = true;
+            GetStateMachine<PlayerFSM>().rb.velocity = Vector2.zero;
             GetStateMachine<PlayerFSM>().PlayMan.walking = false;
         }
     }
@@ -110,6 +113,8 @@ public class PlayerFSM : AbstractFiniteStateMachine
         }
         public override void OnExit()
         {
+
+            GetStateMachine<PlayerFSM>().PlayMan.idle = true;
             GetStateMachine<PlayerFSM>().PlayMan.kicking = false;
         }
     }
@@ -150,6 +155,7 @@ public class PlayerFSM : AbstractFiniteStateMachine
         }
         public override void OnExit()
         {
+            GetStateMachine<PlayerFSM>().PlayMan.idle = true;
             GetStateMachine<PlayerFSM>().PlayMan.throwing = false;
         }
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public int candyHeld;
+    public int candyOnGround;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
