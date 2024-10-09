@@ -8,6 +8,12 @@ public class ChildScript : MonoBehaviour
     public SpriteRenderer sRen;
     private Rigidbody2D rb;
 
+    public bool idle = true;
+    public bool walking = false;
+    public bool following = false;
+    public bool hurt = false;
+    public bool treat = false;
+
     // Start is called before the first frame update
     void Start()
     {
