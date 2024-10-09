@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using KevinCastejon.FiniteStateMachine;
+using UnityEditor;
 public class PlayerFSM : AbstractFiniteStateMachine
 {
 
@@ -69,6 +70,15 @@ public class PlayerFSM : AbstractFiniteStateMachine
             GetStateMachine<PlayerFSM>().speedX = Input.GetAxisRaw("Horizontal") * GetStateMachine<PlayerFSM>().moveSpeed;
             GetStateMachine<PlayerFSM>().speedY = Input.GetAxisRaw("Vertical") * GetStateMachine<PlayerFSM>().moveSpeed;
             GetStateMachine<PlayerFSM>().rb.velocity = new Vector2(GetStateMachine<PlayerFSM>().speedX, GetStateMachine<PlayerFSM>().speedY).normalized * GetStateMachine<PlayerFSM>().moveSpeed;
+
+            if (GetStateMachine<PlayerFSM>().speedX > 0)
+            {
+                GetStateMachine<PlayerFSM>().PlayMan.Player.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (GetStateMachine<PlayerFSM>().speedX < 0)
+            {
+                GetStateMachine<PlayerFSM>().PlayMan.Player.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
 
             if (GetStateMachine<PlayerFSM>().PlayMan.idle)
             {

@@ -9,9 +9,11 @@ public class PlayerScript : MonoBehaviour
     public int candyOnGround;
 
     private Rigidbody2D rb;
+    public SpriteRenderer sRen;
     // Start is called before the first frame update
     void Start()
     {
+        sRen = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 

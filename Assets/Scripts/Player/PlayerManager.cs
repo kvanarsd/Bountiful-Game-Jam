@@ -19,6 +19,11 @@ public class PlayerManager : MonoBehaviour
     public bool kicking = false;
     public bool throwing = false;
 
+    //shooting stuff
+    public GameObject CandyPrefab;
+    public Transform offset;
+    public float candySpeed = 7f;
+
 
 
     // Start is called before the first frame update
@@ -35,6 +40,14 @@ public class PlayerManager : MonoBehaviour
         if (Input.anyKey == false)
         {
             idle = true;
+        }
+
+        if (throwing == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Throw();
+            }
         }
 
         if (kicking == false && throwing == false)
@@ -54,4 +67,23 @@ public class PlayerManager : MonoBehaviour
         
 
     }
+
+    void Throw()
+    {
+        GameObject candy = Instantiate(CandyPrefab, offset.position, Player.transform.rotation);
+
+        Rigidbody2D cRB = candy.GetComponent<Rigidbody2D>();
+
+        if (Player.transform.localRotation.y == 0)
+        {
+            cRB.velocity = new Vector2(candySpeed, 0);
+        }
+        else
+        {
+            cRB.velocity = new Vector2(-candySpeed, 0);
+        }
+        
+
+    }
+
 }
