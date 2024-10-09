@@ -488,6 +488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3940365972021272449, guid: c133641c2c277924ba862d27cfb743c1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5396495000120667895, guid: c133641c2c277924ba862d27cfb743c1, type: 3}
       propertyPath: sRen
       value: 
@@ -748,6 +752,10 @@ PrefabInstance:
       propertyPath: ParentMan
       value: 
       objectReference: {fileID: 4599635375675518898}
+    - target: {fileID: 7836424929192937139, guid: c7df4f9116bdb1044bc15031fa79d588, type: 3}
+      propertyPath: candySpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7836424929192937139, guid: c7df4f9116bdb1044bc15031fa79d588, type: 3}
       propertyPath: CandyPrefab
       value: 

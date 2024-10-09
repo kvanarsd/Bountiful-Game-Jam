@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     //shooting stuff
     public GameObject CandyPrefab;
     public Transform offset;
-    public float candySpeed = 7f;
+    public float candySpeed = 20f;
 
 
 
@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
 
         if (throwing == false)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButtonDown(0))
             {
                 Throw();
             }
@@ -70,18 +70,22 @@ public class PlayerManager : MonoBehaviour
 
     void Throw()
     {
-        GameObject candy = Instantiate(CandyPrefab, offset.position, Player.transform.rotation);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 throwDir = (mousePos - Player.transform.position).normalized;
+        GameObject candy = Instantiate(CandyPrefab, Player.transform.position, /*Player.transform.rotation*/Quaternion.identity);
 
         Rigidbody2D cRB = candy.GetComponent<Rigidbody2D>();
 
-        if (Player.transform.localRotation.y == 0)
+        cRB.velocity = new Vector2(throwDir.x, throwDir.y) * candySpeed;
+
+        /*if (Player.transform.localRotation.y == 0)
         {
-            cRB.velocity = new Vector2(candySpeed, 0);
+            cRB.velocity = new Vector2(throwDir.x, throwDir.y) * candySpeed;
         }
         else
         {
-            cRB.velocity = new Vector2(-candySpeed, 0);
-        }
+            cRB.velocity = new Vector2(throwDir.x, throwDir.y) * -candySpeed;
+        }*/
         
 
     }
