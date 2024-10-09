@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using KevinCastejon.FiniteStateMachine;
+using Unity.VisualScripting;
 
 public class ChildrenManager : MonoBehaviour
 {
@@ -9,8 +10,6 @@ public class ChildrenManager : MonoBehaviour
     private List<GameObject> children = new List<GameObject>();
 
     public float speed = 2.0f;
-    public float walkDistance = 3.0f;
-    private float startPosition;
     private int direction = 1;
 
     // other refs
@@ -85,52 +84,125 @@ public class ChildrenManager : MonoBehaviour
         return sum;
     }
 
-    public void StartWalking(GameObject child)
+    public void StartIdle(GameObject child)
+    {
+        IdleCo = StartCoroutine(Idle(child));
+    }
+
+    public IEnumerator Idle(GameObject child)
+    {
+        timer = Random.Range(1f, 3f);
+        yield return new WaitForSeconds(timer);
+        ChildScript script = child.GetComponent<ChildScript>();
+        
+        script.idle = false;
+
+        string state = SelectState();
+        
+        if (state == "horWalking")
+        {
+            script.horWalking = true;
+        }
+        else if (state == "treat")
+        {
+            script.treat = true;
+        }
+        else if (state == "vertWalking")
+        {
+            script.vertWalking = true;
+        }
+        else
+        {
+            StartIdle(child);
+        }
+    }
+
+    public void StartHorWalking(GameObject child)
     { 
+        WalkCo = StartCoroutine(HorWalking(child));
+    }
+    public void StartVertWalking(GameObject child)
+    {
         WalkCo = StartCoroutine(VertWalking(child));
     }
 
     public IEnumerator HorWalking(GameObject child)
     {
-        child.transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
-
-        // Switch direction at boundaries
-        if (Mathf.Abs(transform.position.x - startPosition) >= walkDistance)
-        {
-            direction *= -1;
-        }
-
         // decide how long to walk in this direction
-        timer = Random.Range(2f, 7f);
+        float timer = Random.Range(2f, 7f);
 
-        // end of timer stop walking
-        yield return new WaitForSeconds(timer);
+        while (timer > 0f)
+        {
+            child.transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
+
+            // Switch direction at boundaries
+            if (transform.position.x >= width || transform.position.x <= 0)
+            {
+                direction *= -1;
+            }
+
+
+            timer -= Time.deltaTime;
+            yield return null;
+        }
 
 
         // choose new state
         string state = SelectState();
-        //if (state == "idle") { idle = true; aud.Stop(); } else if (state == "sleep") { sleeping = true; aud.Stop(); } else { StartWalking(); }
+        ChildScript script = child.GetComponent<ChildScript>();
+        if (state == "idle") { 
+            script.idle = true;
+        }
+        else if (state == "treat")
+        {
+            script.treat = true;
+        }
+        else if (state == "vertWalking") {
+            script.vertWalking = true;
+        } else { 
+            StartHorWalking(child); 
+        }
     }
 
     public IEnumerator VertWalking(GameObject child)
     {
-        child.transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
+        // decide how long to walk in this direction
+        float timer = Random.Range(0.5f, 2f);
 
-        // Switch direction at boundaries
-        if (Mathf.Abs(transform.position.x - startPosition) >= walkDistance)
+        while (timer > 0f)
         {
-            direction *= -1;
+            child.transform.Translate(Vector3.up * speed/2 * direction * Time.deltaTime);
+
+            // Switch direction at boundaries
+            if (transform.position.y <= streetTop || transform.position.y >= streetBottom)
+            {
+                direction *= -1;
+            }
+
+
+            timer -= Time.deltaTime;
+            yield return null;
         }
 
-        // decide how long to walk in this direction
-        timer = Random.Range(2f, 7f);
 
-        // end of timer stop walking
-        yield return new WaitForSeconds(timer);
-  
-      
         // choose new state
         string state = SelectState();
-        //if (state == "idle") { idle = true; aud.Stop(); } else if (state == "sleep") { sleeping = true; aud.Stop(); } else { StartWalking(); }
+        ChildScript script = child.GetComponent<ChildScript>();
+        if (state == "idle")
+        {
+            script.idle = true;
+        }
+        else if (state == "treat")
+        {
+            script.treat = true;
+        }
+        else if (state == "horWalking")
+        {
+            script.horWalking = true;
+        }
+        else
+        {
+            StartVertWalking(child);
+        }
     }
 }

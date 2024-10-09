@@ -46,8 +46,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChildPrefab: {fileID: 0}
+  speed: 2
   ParentMan: {fileID: 0}
   PlayerMan: {fileID: 0}
+  maxChildren: 1
+  width: 1000
+  streetTop: 100
+  streetBottom: 300
+  states:
+  - idle
+  - vertWalking
+  - horWalking
+  - treat
+  weights:
+  - 10
+  - 10
+  - 50
+  - 20
 --- !u!114 &4969535736164326034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +75,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01510d95675a34644a1cd324ed78aa6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  child: {fileID: 0}
