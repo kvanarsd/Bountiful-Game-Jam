@@ -8,6 +8,11 @@ public class ChildrenManager : MonoBehaviour
     public GameObject ChildPrefab;
     private List<ChildrenFSM> children = new List<ChildrenFSM>();
 
+    public float speed = 2.0f;
+    public float walkDistance = 3.0f;
+    private float startPosition;
+    private int direction = 1;
+
     // other refs
     [SerializeField] private ParentManager ParentMan;
     [SerializeField] private PlayerManager PlayerMan;
@@ -52,8 +57,43 @@ public class ChildrenManager : MonoBehaviour
         
     }
 
+    private string SelectState()
+    {
+        float randomNum = Random.Range(0f, SumOfWeights());
+
+        float cumWeight = 0f;
+        for (int i = 0; i < states.Count; i++)
+        {
+            cumWeight += weights[i];
+            if (randomNum <= cumWeight)
+            {
+                return states[i];
+            }
+        }
+
+        // in case
+        return states[states.Count - 1];
+    }
+
+    private float SumOfWeights()
+    {
+        float sum = 0f;
+        foreach (float weight in weights)
+        {
+            sum += weight;
+        }
+        return sum;
+    }
+
     public IEnumerator Walking()
     {
+        transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
+
+        // Switch direction at boundaries
+        if (Mathf.Abs(transform.position.x - startPosition) >= walkDistance)
+        {
+            direction *= -1;
+        }
 
         // decide how long to walk in this direction
         timer = Random.Range(2f, 7f);
@@ -64,6 +104,6 @@ public class ChildrenManager : MonoBehaviour
       
         // choose new state
         string state = SelectState();
-        if (state == "idle") { idle = true; aud.Stop(); } else if (state == "sleep") { sleeping = true; aud.Stop(); } else { StartWalking(); }
+        //if (state == "idle") { idle = true; aud.Stop(); } else if (state == "sleep") { sleeping = true; aud.Stop(); } else { StartWalking(); }
     }
 }
