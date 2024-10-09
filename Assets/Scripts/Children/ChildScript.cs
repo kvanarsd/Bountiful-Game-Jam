@@ -9,7 +9,8 @@ public class ChildScript : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool idle = true;
-    public bool walking = false;
+    public bool vertWalking = false;
+    public bool horWalking = false;
     public bool following = false;
     public bool hurt = false;
     public bool treat = false;
