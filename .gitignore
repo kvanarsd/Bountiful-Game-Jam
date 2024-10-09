@@ -71,3 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Library/ArtifactDB
+Library/ArtifactDB
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
