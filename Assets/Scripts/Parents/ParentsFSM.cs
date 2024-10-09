@@ -16,7 +16,7 @@ public class ParentsFSM : AbstractFiniteStateMachine
     {
         Init(ParentState.CLOSED,
             AbstractState.Create<ClosedState, ParentState>(ParentState.CLOSED, this),
-            AbstractState.Create<ClosedState, ParentState>(ParentState.COPEN, this),
+            AbstractState.Create<OpenState, ParentState>(ParentState.OPEN, this),
             AbstractState.Create<WatchState, ParentState>(ParentState.WATCH, this),
             AbstractState.Create<CandyState, ParentState>(ParentState.CANDY, this),
             AbstractState.Create<AngryState, ParentState>(ParentState.ANGRY, this)
