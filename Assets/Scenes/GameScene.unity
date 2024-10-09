@@ -342,6 +342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Child
       objectReference: {fileID: 0}
+    - target: {fileID: 6895116197058032813, guid: 1f78d75a572f9674cb92befc65ea5ae7, type: 3}
+      propertyPath: m_TagString
+      value: Child
+      objectReference: {fileID: 0}
     - target: {fileID: 7796938501952764513, guid: 1f78d75a572f9674cb92befc65ea5ae7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15204266
@@ -486,6 +490,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3940365972021272449, guid: c133641c2c277924ba862d27cfb743c1, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940365972021272449, guid: c133641c2c277924ba862d27cfb743c1, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5396495000120667895, guid: c133641c2c277924ba862d27cfb743c1, type: 3}
