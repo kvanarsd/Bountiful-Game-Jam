@@ -10,11 +10,13 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
     public SpriteRenderer sRen;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         sRen = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame

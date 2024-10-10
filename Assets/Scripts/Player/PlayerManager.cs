@@ -25,6 +25,9 @@ public class PlayerManager : MonoBehaviour
     public float candySpeed = 20f;
 
 
+    //animations
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +45,8 @@ public class PlayerManager : MonoBehaviour
             idle = true;
         }
 
+        
+
         if (throwing == false)
         {
             if (Input.GetMouseButtonDown(0))
@@ -49,8 +54,6 @@ public class PlayerManager : MonoBehaviour
                 idle = false;
                 throwing = true;
                 Throw();
-                idle = true;
-                throwing = false;
             }
         }
 
@@ -60,6 +63,7 @@ public class PlayerManager : MonoBehaviour
             {
                 walking = true;
                 idle = false;
+
             }
             else
             {
@@ -72,8 +76,9 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    void Throw()
+    public void Throw()
     {
+        Debug.Log("throwing");
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 throwDir = (mousePos - Player.transform.position).normalized;
         GameObject candy = Instantiate(CandyPrefab, Player.transform.position, /*Player.transform.rotation*/Quaternion.identity);
@@ -84,6 +89,10 @@ public class PlayerManager : MonoBehaviour
 
         cRB.velocity = new Vector2(throwDir.x, throwDir.y) * candySpeed;
 
+
+        idle = true;
+        throwing = false;
+
         /*if (Player.transform.localRotation.y == 0)
         {
             cRB.velocity = new Vector2(throwDir.x, throwDir.y) * candySpeed;
@@ -92,8 +101,20 @@ public class PlayerManager : MonoBehaviour
         {
             cRB.velocity = new Vector2(throwDir.x, throwDir.y) * -candySpeed;
         }*/
-        
 
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(idle == true)
+        {
+            Player.anim.Play("MC_idle");
+            if (collision.tag == "HealthyDoor" || collision.tag == "ChocolateDoor" || collision.tag == "SweetDoor" || collision.tag == "SourDoor")
+            {
+                Player.anim.Play("MC_love");
+            }
+        }
     }
 
 }
