@@ -447,6 +447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SourDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6120912824558301774, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: m_TagString
+      value: SourDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 7434916543251376788, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: m_Size.x
       value: 3.2394412
@@ -731,6 +735,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120912824558301774, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: m_Name
+      value: ChocolateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120912824558301774, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: m_TagString
       value: ChocolateDoor
       objectReference: {fileID: 0}
     - target: {fileID: 7434916543251376788, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
@@ -1076,6 +1084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SweetDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6120912824558301774, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: m_TagString
+      value: SweetDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 7434916543251376788, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: m_Size.x
       value: 0.9158174
@@ -1253,6 +1265,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120912824558301774, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: m_Name
+      value: HealthyDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120912824558301774, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: m_TagString
       value: HealthyDoor
       objectReference: {fileID: 0}
     - target: {fileID: 7434916543251376788, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}

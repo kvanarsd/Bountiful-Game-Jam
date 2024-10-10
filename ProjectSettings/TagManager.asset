@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HealthyDoor
+  - SweetDoor
+  - ChocolateDoor
+  - SourDoor
   layers:
   - Default
   - TransparentFX
