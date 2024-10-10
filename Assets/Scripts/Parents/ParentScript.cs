@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class ParentScript : MonoBehaviour
 {
+    //collider and renderer
     public BoxCollider2D openDoorCollider;
     public SpriteRenderer spriteRenderer;
 
+    //open and close door sprites
     public Sprite openSprite;
     public Sprite closeSprite;
+
     bool doorOpen = false;
+    int childCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,14 @@ public class ParentScript : MonoBehaviour
             doorOpen = true;
             spriteRenderer.sprite = openSprite;
         }
+        if(person.tag == "child" && !doorOpen){
+            if(childCount < 3){
+                childCount++;
+            } else {
+                doorOpen = true;
+                spriteRenderer.sprite = openSprite;
+            }
+        }
     }
 
     //closes door when player leaves
@@ -38,6 +50,14 @@ public class ParentScript : MonoBehaviour
         if(person.tag == "Player"){
             doorOpen = false;
             spriteRenderer.sprite = closeSprite;
+        }
+        if(person.tag == "child" && doorOpen){
+            if(childCount >= 3){
+                childCount--;
+            } else {
+                doorOpen = true;
+                spriteRenderer.sprite = openSprite;
+            }
         }
     }
 }

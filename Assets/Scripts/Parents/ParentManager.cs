@@ -16,12 +16,7 @@ public class ParentManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            GameObject parentObj = Instantiate(ParentPrefab);
-            ParentsFSM parentsFSM = parentObj.GetComponent<ParentsFSM>();
-            parents.Add(parentsFSM);
-        }
+    
     }
 
     // Update is called once per frame
