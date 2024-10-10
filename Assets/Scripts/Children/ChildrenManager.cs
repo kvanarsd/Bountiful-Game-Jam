@@ -174,7 +174,7 @@ public class ChildrenManager : MonoBehaviour
     public IEnumerator VertWalking(GameObject child)
     {
         // decide how long to walk in this direction
-        float timer = Random.Range(0.25f, 0.75f);
+        float timer = Random.Range(0.25f, 1f);
         float speed = Random.Range(speedMin, speedMax);
         ChildScript script = child.GetComponent<ChildScript>();
 
@@ -218,6 +218,7 @@ public class ChildrenManager : MonoBehaviour
         // choose new state
         string state = SelectState();
         ChildScript script = child.GetComponent<ChildScript>();
+        script.treat = false;
         if (state == "idle")
         {
             script.idle = true;
@@ -233,6 +234,37 @@ public class ChildrenManager : MonoBehaviour
         else
         {
             TrickTreat(child);
+        }
+    }
+
+    public void Follow(GameObject child)
+    {
+        ChildScript script = child.GetComponent<ChildScript>();
+        Vector2 location = script.candy.transform.position;
+        float speed = Random.Range(speedMin, speedMax);
+
+        while (script.following)
+        {
+            child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed);
+        }
+
+        // choose new state
+        string state = SelectState();
+        if (state == "idle")
+        {
+            script.idle = true;
+        }
+        else if (state == "vertWalking")
+        {
+            script.vertWalking = true;
+        }
+        else if (state == "horWalking")
+        {
+            script.horWalking = true;
+        }
+        else
+        {
+            script.treat = true;
         }
     }
 }
