@@ -141,9 +141,7 @@ public class ChildrenManager : MonoBehaviour
             child.transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
 
             // Switch direction at boundaries
-            Debug.Log(transform.position.x >= width);
-            Debug.Log(transform.rect.position.x);
-            if (transform.position.x >= width || transform.position.x <= -width)
+            if (child.transform.position.x >= width || child.transform.position.x <= -width)
             {
                 Debug.Log("switch");
                 direction *= -1;
@@ -182,7 +180,7 @@ public class ChildrenManager : MonoBehaviour
             child.transform.Translate(Vector3.up * speed/2 * direction * Time.deltaTime);
 
             // Switch direction at boundaries
-            if (transform.position.y >= streetTop || transform.position.y <= streetBottom)
+            if (child.transform.position.y >= streetTop || child.transform.position.y <= streetBottom)
             {
                 direction *= -1;
             }
