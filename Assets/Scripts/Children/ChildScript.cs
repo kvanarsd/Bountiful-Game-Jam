@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ChildScript : MonoBehaviour
 {
-    public int candy;
     public SpriteRenderer sRen;
     //private Rigidbody2D rb;
     [SerializeField] private TMP_Text text;
@@ -16,6 +15,8 @@ public class ChildScript : MonoBehaviour
     public bool following = false;
     public bool hurt = false;
     public bool treat = false;
+
+    public GameObject candy;
 
     public int direction = 1;
 
