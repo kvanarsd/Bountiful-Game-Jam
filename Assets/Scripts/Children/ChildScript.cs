@@ -15,6 +15,8 @@ public class ChildScript : MonoBehaviour
     public bool hurt = false;
     public bool treat = false;
 
+    public int direction = 1;
+
     // Start is called before the first frame update
     void Start()
     {

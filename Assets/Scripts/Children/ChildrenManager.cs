@@ -10,8 +10,9 @@ public class ChildrenManager : MonoBehaviour
     public GameObject ChildPrefab;
     private List<GameObject> children = new List<GameObject>();
 
-    public float speed = 2.0f;
-    private int direction = 1;
+    public float speedMin = 0.5f;
+    public float speedMax = 2.0f;
+    
 
     // other refs
     [SerializeField] private ParentManager ParentMan;
@@ -135,16 +136,17 @@ public class ChildrenManager : MonoBehaviour
     {
         // decide how long to walk in this direction
         float timer = Random.Range(2f, 7f);
+        float speed = Random.Range(speedMin, speedMax);
+        ChildScript script = child.GetComponent<ChildScript>();
 
         while (timer > 0f)
         {
-            child.transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
+            child.transform.Translate(Vector3.right * speed * script.direction * Time.deltaTime);
 
             // Switch direction at boundaries
             if (child.transform.position.x >= width || child.transform.position.x <= -width)
             {
-                Debug.Log("switch");
-                direction *= -1;
+                script.direction *= -1;
             }
 
 
@@ -152,10 +154,8 @@ public class ChildrenManager : MonoBehaviour
             yield return null;
         }
 
-
         // choose new state
         string state = SelectState();
-        ChildScript script = child.GetComponent<ChildScript>();
         if (state == "idle") { 
             script.idle = true;
         }
@@ -173,16 +173,18 @@ public class ChildrenManager : MonoBehaviour
     public IEnumerator VertWalking(GameObject child)
     {
         // decide how long to walk in this direction
-        float timer = Random.Range(0.5f, 2f);
+        float timer = Random.Range(0.25f, 0.75f);
+        float speed = Random.Range(speedMin, speedMax);
+        ChildScript script = child.GetComponent<ChildScript>();
 
         while (timer > 0f)
         {
-            child.transform.Translate(Vector3.up * speed/2 * direction * Time.deltaTime);
+            child.transform.Translate(Vector3.up * speed/2 * script.direction * Time.deltaTime);
 
             // Switch direction at boundaries
             if (child.transform.position.y >= streetTop || child.transform.position.y <= streetBottom)
             {
-                direction *= -1;
+                script.direction *= -1;
             }
 
 
@@ -190,10 +192,8 @@ public class ChildrenManager : MonoBehaviour
             yield return null;
         }
 
-
         // choose new state
         string state = SelectState();
-        ChildScript script = child.GetComponent<ChildScript>();
         if (state == "idle")
         {
             script.idle = true;
