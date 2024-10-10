@@ -7,7 +7,7 @@ public class ChildScript : MonoBehaviour
 {
     public SpriteRenderer sRen;
     //private Rigidbody2D rb;
-    [SerializeField] private TMP_Text text;
+    
 
     public bool idle = true;
     public bool vertWalking = false;
@@ -25,8 +25,6 @@ public class ChildScript : MonoBehaviour
     {
         sRen = GetComponent<SpriteRenderer>();
 
-        text.enabled = false;
-
         int directionChoice = Random.Range(0, 1);
         if(directionChoice == 0 )
         {
@@ -40,19 +38,5 @@ public class ChildScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            text.enabled = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            text.enabled = false;
-        }
-    }
+    
 }

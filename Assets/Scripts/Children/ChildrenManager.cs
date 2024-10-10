@@ -103,7 +103,7 @@ public class ChildrenManager : MonoBehaviour
 
     public IEnumerator Idle(GameObject child)
     {
-        timer = Random.Range(0.5f, 1.5f);
+        timer = Random.Range(0.5f, 2f);
         yield return new WaitForSeconds(timer);
         ChildScript script = child.GetComponent<ChildScript>();
         
@@ -225,9 +225,8 @@ public class ChildrenManager : MonoBehaviour
 
     public IEnumerator TrickTreat (GameObject child)
     {
-        Debug.Log("Trick or treat!");
-        Vector2 door = doors[Random.Range(0, doors.Count - 1)];
-        door.x += Random.Range(-0.1f, 0.1f);
+        Vector2 door = doors[Random.Range(0, doors.Count)];
+        door.x += Random.Range(-0.25f, 0.25f);
 
         float speed = Random.Range(speedMin, speedMax);
         float threshold = 0.01f;
@@ -238,7 +237,7 @@ public class ChildrenManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
 
         // If not treat again then move down (away from door
         string state = SelectState();

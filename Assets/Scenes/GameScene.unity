@@ -4042,7 +4042,7 @@ PrefabInstance:
       objectReference: {fileID: 4899451474897190502, guid: 1f78d75a572f9674cb92befc65ea5ae7, type: 3}
     - target: {fileID: 74305366658782629, guid: 2f907a92f09ac2742a1ea4aa63f209c7, type: 3}
       propertyPath: maxChildren
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7889780857435677732, guid: 2f907a92f09ac2742a1ea4aa63f209c7, type: 3}
       propertyPath: m_LocalPosition.x

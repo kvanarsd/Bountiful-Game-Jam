@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,12 +22,15 @@ public class ParentScript : MonoBehaviour
     private bool doorOpen = false;
     private int childCount = 0;
 
+    [SerializeField] private TMP_Text text;
+
     //number of children until door opens
     [SerializeField] private int CHILDREN_ALLOWED;
 
     // Start is called before the first frame update
     void Start()
     {
+        text.enabled = false;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
@@ -53,17 +57,17 @@ public class ParentScript : MonoBehaviour
     //opens door when the player is at the door or when children are at the door
     void OnTriggerEnter2D(Collider2D person)
     {
-        if(person.tag == "Player"){
+        if (person.tag == "Player"){
             playerNear = true;
             doorOpen = true;
             spriteRenderer.sprite = openSprite;
         }
-        if(person.tag == "child"){
-            if(childCount < CHILDREN_ALLOWED){
-                childCount++;
-            } else if (!doorOpen) {
+        if(person.tag == "Child"){
+            childCount++;
+            if (!doorOpen && childCount >= CHILDREN_ALLOWED) {
                 doorOpen = true;
                 spriteRenderer.sprite = openSprite;
+                text.enabled = true;
             }
         }
         
@@ -79,11 +83,12 @@ public class ParentScript : MonoBehaviour
                 spriteRenderer.sprite = closeSprite;
             }
             
-        } else if(person.tag == "child"){
+        } else if(person.tag == "Child"){
             childCount--;
             if(childCount < CHILDREN_ALLOWED){
                 doorOpen = false;
                 spriteRenderer.sprite = closeSprite;
+                text.enabled = false;
             }
         }
     }

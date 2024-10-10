@@ -177,6 +177,7 @@ public class ChildrenFSM : AbstractFiniteStateMachine
         }
         public override void OnExit()
         {
+            GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().treat = false;
         }
     }
     public class HurtState : AbstractState
