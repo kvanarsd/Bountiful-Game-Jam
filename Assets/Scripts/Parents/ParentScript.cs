@@ -15,6 +15,9 @@ public class ParentScript : MonoBehaviour
     bool doorOpen = false;
     int childCount = 0;
 
+    //number of children until door opens
+    public int CHILDREN_ALLOWED;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +37,10 @@ public class ParentScript : MonoBehaviour
             doorOpen = true;
             spriteRenderer.sprite = openSprite;
         }
-        if(person.tag == "child" && !doorOpen){
-            if(childCount < 3){
+        if(person.tag == "child"){
+            if(childCount < CHILDREN_ALLOWED){
                 childCount++;
-            } else {
+            } else if (!doorOpen) {
                 doorOpen = true;
                 spriteRenderer.sprite = openSprite;
             }
@@ -47,16 +50,14 @@ public class ParentScript : MonoBehaviour
     //closes door when player leaves
     void OnTriggerExit2D(Collider2D person)
     {
-        if(person.tag == "Player"){
+        if(person.tag == "Player" && childCount == 0){
             doorOpen = false;
             spriteRenderer.sprite = closeSprite;
-        }
-        if(person.tag == "child" && doorOpen){
-            if(childCount >= 3){
-                childCount--;
-            } else {
-                doorOpen = true;
-                spriteRenderer.sprite = openSprite;
+        } else if(person.tag == "child"){
+            childCount--;
+            if(childCount < CHILDREN_ALLOWED){
+                doorOpen = false;
+                spriteRenderer.sprite = closeSprite;
             }
         }
     }

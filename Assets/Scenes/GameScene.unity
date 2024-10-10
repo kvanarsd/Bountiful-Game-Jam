@@ -356,6 +356,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 490623995}
     - target: {fileID: 328103712189497434, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: CHILDREN_ALLOWED
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 328103712189497434, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: openDoorCollider
       value: 
       objectReference: {fileID: 490623994}
@@ -645,6 +649,10 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 587188101}
+    - target: {fileID: 328103712189497434, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: CHILDREN_ALLOWED
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 328103712189497434, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: openDoorCollider
       value: 
@@ -993,6 +1001,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1667891092}
     - target: {fileID: 328103712189497434, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: CHILDREN_ALLOWED
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 328103712189497434, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: openDoorCollider
       value: 
       objectReference: {fileID: 1667891091}
@@ -1134,11 +1146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7434916543251376788, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.95
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7434916543251376788, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.22
+      value: 2.14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1175,6 +1187,10 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 2518831730917093087}
+    - target: {fileID: 328103712189497434, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: CHILDREN_ALLOWED
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 328103712189497434, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: openDoorCollider
       value: 
