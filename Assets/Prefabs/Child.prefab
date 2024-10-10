@@ -116,12 +116,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candy: 0
   sRen: {fileID: 0}
+  text: {fileID: 6212085570388505780}
   idle: 1
   vertWalking: 0
   horWalking: 0
   following: 0
   hurt: 0
   treat: 0
+  direction: 1
 --- !u!58 &6115085312997215233
 CircleCollider2D:
   m_ObjectHideFlags: 0

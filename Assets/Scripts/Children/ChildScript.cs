@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ChildScript : MonoBehaviour
 {
     public int candy;
     public SpriteRenderer sRen;
-    private Rigidbody2D rb;
+    //private Rigidbody2D rb;
+    [SerializeField] private TMP_Text text;
 
     public bool idle = true;
     public bool vertWalking = false;
@@ -21,13 +23,35 @@ public class ChildScript : MonoBehaviour
     void Start()
     {
         sRen = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
 
+        text.enabled = false;
+
+        int directionChoice = Random.Range(0, 1);
+        if(directionChoice == 0 )
+        {
+            direction = -1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            text.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            text.enabled = false;
+        }
     }
 }
