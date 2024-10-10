@@ -79,6 +79,16 @@ public class PlayerFSM : AbstractFiniteStateMachine
             {
                 GetStateMachine<PlayerFSM>().PlayMan.Player.transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
+            
+            if(GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.x < -11.2)
+            {
+                GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position = new Vector2(-11.2f, GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.y);
+            }
+            if (GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.x > 11.2)
+            {
+                GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position = new Vector2(11.2f, GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.y);
+            }
+
 
             if (GetStateMachine<PlayerFSM>().PlayMan.idle)
             {
