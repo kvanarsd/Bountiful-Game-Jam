@@ -5,7 +5,7 @@ using KevinCastejon.FiniteStateMachine;
 using System;
 public class ChildrenFSM : AbstractFiniteStateMachine
 {
-    public ChildrenManager Manager { get; set; }
+    public ChildrenManager Manager;
     public GameObject child;
     public enum ChildState
     {
@@ -28,6 +28,7 @@ public class ChildrenFSM : AbstractFiniteStateMachine
         );
 
         child = gameObject;
+        Manager = FindObjectOfType<ChildrenManager>();
     }
     public class IdleState : AbstractState
     {

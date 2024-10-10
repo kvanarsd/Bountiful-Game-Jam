@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using KevinCastejon.FiniteStateMachine;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class ChildrenManager : MonoBehaviour
 {
@@ -15,12 +16,13 @@ public class ChildrenManager : MonoBehaviour
     // other refs
     [SerializeField] private ParentManager ParentMan;
     [SerializeField] private PlayerManager PlayerMan;
+    [SerializeField] private RectTransform background;
+    private CanvasScaler canvasScaler;
 
     // random timer for states
     private float timer;
 
     public float maxChildren;
-    private float numChildren;
 
     // bounding screen
     [SerializeField] private float width;
@@ -40,12 +42,16 @@ public class ChildrenManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numChildren = Random.Range(0f, maxChildren);
+        // background dimensions
+        width = background.rect.width;
+        streetTop = background.rect.height / 3;
+        streetBottom = 0;
 
-        for (int i = 0; i < numChildren; i++)
+        // spawn in children
+        for (int i = 0; i < maxChildren; i++)
         {
-            GameObject childObj = Instantiate(ChildPrefab);
-            //ChildrenFSM childrenFSM =childObj.GetComponent<ChildrenFSM>();
+            Vector3 randPos = new Vector3(Random.Range(0, width), Random.Range(streetBottom, streetTop), 0);
+            GameObject childObj = Instantiate(ChildPrefab, randPos, Quaternion.identity, transform);
             children.Add(childObj);
         }
     }
