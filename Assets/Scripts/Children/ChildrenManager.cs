@@ -4,6 +4,7 @@ using UnityEngine;
 using KevinCastejon.FiniteStateMachine;
 using Unity.VisualScripting;
 using UnityEngine.UI;
+using static UnityEditor.FilePathAttribute;
 
 public class ChildrenManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class ChildrenManager : MonoBehaviour
     [SerializeField] private ParentManager ParentMan;
     [SerializeField] private PlayerManager PlayerMan;
     [SerializeField] private SpriteRenderer background;
+    private List<Vector2> doors = new List<Vector2>();
 
     // random timer for states
     private float timer;
@@ -46,7 +48,10 @@ public class ChildrenManager : MonoBehaviour
         width = 12.5f;
         streetTop = -2.5f;
         streetBottom = -4;
-        Debug.Log(width + " " + streetTop + " " + streetBottom);
+        doors.Add(new Vector2(-9.532f, -2.5f));
+        doors.Add(new Vector2(-1.284f, -2.5f));
+        doors.Add(new Vector2(0.851f, -2.5f));
+        doors.Add(new Vector2(7.31f, -2.5f));
 
         for (int i = 0; i < maxChildren; i++)
         {
@@ -136,7 +141,7 @@ public class ChildrenManager : MonoBehaviour
     public IEnumerator HorWalking(GameObject child)
     {
         // decide how long to walk in this direction
-        float timer = Random.Range(2f, 7f);
+        float timer = Random.Range(2f, 4f);
         float speed = Random.Range(speedMin, speedMax);
         ChildScript script = child.GetComponent<ChildScript>();
 
@@ -213,27 +218,39 @@ public class ChildrenManager : MonoBehaviour
         }
     }
 
-    public void TrickTreat (GameObject child)
+    public void StartTreat(GameObject child)
     {
-        // choose new state
+        TreatCo = StartCoroutine(TrickTreat(child));
+    }
+
+    public IEnumerator TrickTreat (GameObject child)
+    {
+        Debug.Log("Trick or treat!");
+        Vector2 door = doors[Random.Range(0, doors.Count - 1)];
+        door.x += Random.Range(-0.1f, 0.1f);
+
+        float speed = Random.Range(speedMin, speedMax);
+        float threshold = 0.01f;
+
+        while (Vector2.Distance(child.transform.position, door) > threshold)
+        {
+            child.transform.position = Vector2.MoveTowards(child.transform.position, door, speed/2 * Time.deltaTime);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+
+        // If not treat again then move down (away from door
         string state = SelectState();
         ChildScript script = child.GetComponent<ChildScript>();
-        script.treat = false;
-        if (state == "idle")
+
+        if (state == "treat")
         {
-            script.idle = true;
-        }
-        else if (state == "vertWalking")
-        {
-            script.vertWalking = true;
-        }
-        else if (state == "horWalking")
-        {
-            script.horWalking = true;
+            StartTreat(child);
         }
         else
         {
-            TrickTreat(child);
+            script.vertWalking = true;
         }
     }
 

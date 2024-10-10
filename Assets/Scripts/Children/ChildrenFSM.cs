@@ -158,7 +158,7 @@ public class ChildrenFSM : AbstractFiniteStateMachine
     {
         public override void OnEnter()
         {
-            GetStateMachine<ChildrenFSM>().Manager.TrickTreat(GetStateMachine<ChildrenFSM>().child);
+            GetStateMachine<ChildrenFSM>().Manager.StartTreat(GetStateMachine<ChildrenFSM>().child);
         }
         public override void OnUpdate()
         {
