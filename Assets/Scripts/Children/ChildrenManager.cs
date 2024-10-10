@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using KevinCastejon.FiniteStateMachine;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class ChildrenManager : MonoBehaviour
 {
@@ -47,8 +48,8 @@ public class ChildrenManager : MonoBehaviour
 
         for (int i = 0; i < maxChildren; i++)
         {
-            GameObject childObj = Instantiate(ChildPrefab);
-            //ChildrenFSM childrenFSM =childObj.GetComponent<ChildrenFSM>();
+            Vector3 randPos = new Vector3(Random.Range(0, width), Random.Range(streetBottom, streetTop), 0);
+            GameObject childObj = Instantiate(ChildPrefab, randPos, Quaternion.identity, transform);
             children.Add(childObj);
         }
     }
