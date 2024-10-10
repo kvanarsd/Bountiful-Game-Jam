@@ -42,13 +42,14 @@ public class ChildrenManager : MonoBehaviour
     void Start()
     {
         // background dimensions
-        width = background.bounds.size.x;
-        streetTop = background.bounds.size.y / 3;
-        streetBottom = 0;
+        width = 12.5f;
+        streetTop = -2.5f;
+        streetBottom = -4;
+        Debug.Log(width + " " + streetTop + " " + streetBottom);
 
         for (int i = 0; i < maxChildren; i++)
         {
-            Vector3 randPos = new Vector3(Random.Range(0, width), Random.Range(streetBottom, streetTop), 0);
+            Vector3 randPos = new Vector3(Random.Range(-width, width), Random.Range(streetBottom, streetTop), 0);
             GameObject childObj = Instantiate(ChildPrefab, randPos, Quaternion.identity, transform);
             children.Add(childObj);
         }
