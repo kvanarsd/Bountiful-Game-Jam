@@ -12,11 +12,11 @@ public class ParentScript : MonoBehaviour
     public Sprite openSprite;
     public Sprite closeSprite;
 
-    bool doorOpen = false;
-    int childCount = 0;
+    private bool doorOpen = false;
+    private int childCount = 0;
 
     //number of children until door opens
-    public int CHILDREN_ALLOWED;
+    [SerializeField] private int CHILDREN_ALLOWED;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class ParentScript : MonoBehaviour
         
     }
 
-    //opens door when the player is at the door
+    //opens door when the player is at the door or when children are at the door
     void OnTriggerEnter2D(Collider2D person)
     {
         if(person.tag == "Player"){
@@ -47,7 +47,7 @@ public class ParentScript : MonoBehaviour
         }
     }
 
-    //closes door when player leaves
+    //closes door when player leaves, or when all the children leave
     void OnTriggerExit2D(Collider2D person)
     {
         if(person.tag == "Player" && childCount == 0){
