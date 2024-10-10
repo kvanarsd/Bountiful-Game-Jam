@@ -8,6 +8,8 @@ TagManager:
   - SweetDoor
   - ChocolateDoor
   - SourDoor
+  - Candy
+  - Child
   layers:
   - Default
   - TransparentFX

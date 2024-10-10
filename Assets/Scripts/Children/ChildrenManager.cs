@@ -52,6 +52,7 @@ public class ChildrenManager : MonoBehaviour
         {
             Vector3 randPos = new Vector3(Random.Range(-width, width), Random.Range(streetBottom, streetTop), 0);
             GameObject childObj = Instantiate(ChildPrefab, randPos, Quaternion.identity, transform);
+            childObj.tag = "Child";
             children.Add(childObj);
         }
     }

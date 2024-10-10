@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e67c79b4403a6408d612389744e1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candy: 0
   sRen: {fileID: 0}
   text: {fileID: 6212085570388505780}
   idle: 1
@@ -124,6 +123,7 @@ MonoBehaviour:
   following: 0
   hurt: 0
   treat: 0
+  candy: {fileID: 0}
   direction: 1
 --- !u!58 &6115085312997215233
 CircleCollider2D:
@@ -356,7 +356,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
