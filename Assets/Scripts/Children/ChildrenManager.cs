@@ -15,12 +15,12 @@ public class ChildrenManager : MonoBehaviour
     // other refs
     [SerializeField] private ParentManager ParentMan;
     [SerializeField] private PlayerManager PlayerMan;
+    [SerializeField] private SpriteRenderer background;
 
     // random timer for states
     private float timer;
 
     public float maxChildren;
-    private float numChildren;
 
     // bounding screen
     [SerializeField] private float width;
@@ -40,9 +40,12 @@ public class ChildrenManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numChildren = Random.Range(0f, maxChildren);
+        // background dimensions
+        width = background.bounds.size.x;
+        streetTop = background.bounds.size.y / 3;
+        streetBottom = 0;
 
-        for (int i = 0; i < numChildren; i++)
+        for (int i = 0; i < maxChildren; i++)
         {
             GameObject childObj = Instantiate(ChildPrefab);
             //ChildrenFSM childrenFSM =childObj.GetComponent<ChildrenFSM>();
