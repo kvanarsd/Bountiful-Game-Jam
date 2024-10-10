@@ -46,7 +46,11 @@ public class PlayerManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                idle = false;
+                throwing = true;
                 Throw();
+                idle = true;
+                throwing = false;
             }
         }
 
@@ -73,6 +77,8 @@ public class PlayerManager : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 throwDir = (mousePos - Player.transform.position).normalized;
         GameObject candy = Instantiate(CandyPrefab, Player.transform.position, /*Player.transform.rotation*/Quaternion.identity);
+
+        candy.tag = "Candy";
 
         Rigidbody2D cRB = candy.GetComponent<Rigidbody2D>();
 
