@@ -8,8 +8,9 @@ using static UnityEditor.FilePathAttribute;
 
 public class ChildrenManager : MonoBehaviour
 {
-    public GameObject ChildPrefab;
+    [SerializeField] private GameObject ChildPrefab;
     private List<GameObject> children = new List<GameObject>();
+    [SerializeField] private List<Sprite> sprites = new List<Sprite>();
 
     public float speedMin = 0.5f;
     public float speedMax = 2.0f;
