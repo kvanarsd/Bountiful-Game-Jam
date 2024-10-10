@@ -96,7 +96,7 @@ public class ChildrenManager : MonoBehaviour
 
     public IEnumerator Idle(GameObject child)
     {
-        timer = Random.Range(1f, 3f);
+        timer = Random.Range(0.5f, 1.5f);
         yield return new WaitForSeconds(timer);
         ChildScript script = child.GetComponent<ChildScript>();
         
@@ -141,8 +141,11 @@ public class ChildrenManager : MonoBehaviour
             child.transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
 
             // Switch direction at boundaries
-            if (transform.position.x >= width || transform.position.x <= 0)
+            Debug.Log(transform.position.x >= width);
+            Debug.Log(transform.rect.position.x);
+            if (transform.position.x >= width || transform.position.x <= -width)
             {
+                Debug.Log("switch");
                 direction *= -1;
             }
 
@@ -179,7 +182,7 @@ public class ChildrenManager : MonoBehaviour
             child.transform.Translate(Vector3.up * speed/2 * direction * Time.deltaTime);
 
             // Switch direction at boundaries
-            if (transform.position.y <= streetTop || transform.position.y >= streetBottom)
+            if (transform.position.y >= streetTop || transform.position.y <= streetBottom)
             {
                 direction *= -1;
             }
@@ -208,6 +211,29 @@ public class ChildrenManager : MonoBehaviour
         else
         {
             StartVertWalking(child);
+        }
+    }
+
+    public void TrickTreat (GameObject child)
+    {
+        // choose new state
+        string state = SelectState();
+        ChildScript script = child.GetComponent<ChildScript>();
+        if (state == "idle")
+        {
+            script.idle = true;
+        }
+        else if (state == "vertWalking")
+        {
+            script.vertWalking = true;
+        }
+        else if (state == "horWalking")
+        {
+            script.horWalking = true;
+        }
+        else
+        {
+            TrickTreat(child);
         }
     }
 }
