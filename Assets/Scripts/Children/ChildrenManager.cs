@@ -15,7 +15,7 @@ public class ChildrenManager : MonoBehaviour
 
     public float speedMin = 0.5f;
     public float speedMax = 2.0f;
-    
+
 
     // other refs
     [SerializeField] private ParentManager ParentMan;
@@ -62,7 +62,7 @@ public class ChildrenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private string SelectState()
@@ -110,11 +110,11 @@ public class ChildrenManager : MonoBehaviour
         timer = Random.Range(0.5f, 2f);
         yield return new WaitForSeconds(timer);
         ChildScript script = child.GetComponent<ChildScript>();
-        
+
         script.idle = false;
 
         string state = SelectState();
-        
+
         if (state == "horWalking")
         {
             script.horWalking = true;
@@ -174,7 +174,7 @@ public class ChildrenManager : MonoBehaviour
 
         // choose new state
         string state = SelectState();
-        if (state == "idle") { 
+        if (state == "idle") {
             script.idle = true;
         }
         else if (state == "treat")
@@ -183,8 +183,8 @@ public class ChildrenManager : MonoBehaviour
         }
         else if (state == "vertWalking") {
             script.vertWalking = true;
-        } else { 
-            StartHorWalking(child); 
+        } else {
+            StartHorWalking(child);
         }
     }
 
@@ -197,7 +197,7 @@ public class ChildrenManager : MonoBehaviour
 
         while (timer > 0f)
         {
-            child.transform.Translate(Vector3.up * speed/2 * script.direction * Time.deltaTime);
+            child.transform.Translate(Vector3.up * speed / 2 * script.direction * Time.deltaTime);
 
             // Switch direction at boundaries
             if (child.transform.position.y >= streetTop || child.transform.position.y <= streetBottom)
@@ -241,7 +241,7 @@ public class ChildrenManager : MonoBehaviour
         StopCoroutine(script.TreatCo);
     }
 
-    public IEnumerator TrickTreat (GameObject child)
+    public IEnumerator TrickTreat(GameObject child)
     {
         Vector2 door = doors[Random.Range(0, doors.Count)];
         door.x += Random.Range(-0.25f, 0.25f);
@@ -251,7 +251,7 @@ public class ChildrenManager : MonoBehaviour
 
         while (Vector2.Distance(child.transform.position, door) > threshold)
         {
-            child.transform.position = Vector2.MoveTowards(child.transform.position, door, speed/2 * Time.deltaTime);
+            child.transform.position = Vector2.MoveTowards(child.transform.position, door, speed / 2 * Time.deltaTime);
             yield return null;
         }
 
@@ -271,19 +271,26 @@ public class ChildrenManager : MonoBehaviour
         }
     }
 
-    public void Follow(GameObject child)
+    public void StartFollow(GameObject child)
+    {
+        StartCoroutine(Follow(child));
+    }
+    public IEnumerator Follow(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
-        Debug.Log("start follow " + child.name);
+        Vector2 adjust = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
         Vector2 location = script.candy.transform.position;
-        Debug.Log("candy location");
+        location += adjust;
         float speed = Random.Range(speedMin, speedMax);
-        Debug.Log(script.following);
-        /*while (script.following)
+
+        float threshold = 0.01f;
+        while (script.following || Vector2.Distance(child.transform.position, location) > threshold)
         {
-            Debug.Log("child following");
-            //child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed);
-        }*/
+            child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed/2 * Time.deltaTime);
+            location = script.candy.transform.position;
+            location += adjust;
+            yield return null;
+        }
         
     }
 

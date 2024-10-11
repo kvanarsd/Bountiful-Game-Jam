@@ -15,7 +15,6 @@ public class ChildCandyVis : MonoBehaviour
     {
         if (collision.tag == "Candy")
         {
-            Debug.Log("following");
             parent.candy = collision.gameObject;
             parent.following = true;
         }

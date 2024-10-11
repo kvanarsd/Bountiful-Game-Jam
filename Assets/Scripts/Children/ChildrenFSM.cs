@@ -133,7 +133,7 @@ public class ChildrenFSM : AbstractFiniteStateMachine
         public override void OnEnter()
         {
             Debug.Log("FSM start follow");
-            GetStateMachine<ChildrenFSM>().Manager.Follow(GetStateMachine<ChildrenFSM>().child);
+            GetStateMachine<ChildrenFSM>().Manager.StartFollow(GetStateMachine<ChildrenFSM>().child);
         }
         public override void OnUpdate()
         {
