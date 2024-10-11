@@ -5,6 +5,7 @@ using KevinCastejon.FiniteStateMachine;
 using Unity.VisualScripting;
 using UnityEngine.UI;
 using static UnityEditor.FilePathAttribute;
+using TMPro;
 
 public class ChildrenManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class ChildrenManager : MonoBehaviour
     [SerializeField] private PlayerManager PlayerMan;
     [SerializeField] private SpriteRenderer background;
     private List<Vector2> doors = new List<Vector2>();
+    public TMP_Text text;
 
     // random timer for states
     private float timer;

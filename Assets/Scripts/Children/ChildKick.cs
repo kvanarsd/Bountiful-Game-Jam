@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class ChildKick : MonoBehaviour
 {
-    [SerializeField] private TMP_Text text;
+    private ChildrenManager man;
+    private TMP_Text text;
     // Start is called before the first frame update
     void Start()
     {
+        man = FindObjectOfType<ChildrenManager>();
+        text = man.text;
         text.enabled = false;
     }
 

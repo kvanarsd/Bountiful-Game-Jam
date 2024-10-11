@@ -23,7 +23,7 @@ public class ChildScript : MonoBehaviour
     public Coroutine FollowCo;
 
     public GameObject candy;
-
+    
     public int direction = 1;
 
     // Start is called before the first frame update
