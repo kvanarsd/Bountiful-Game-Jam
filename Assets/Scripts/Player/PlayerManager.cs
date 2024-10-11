@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     // other refs
     [SerializeField] private ParentManager ParentMan;
     [SerializeField] private ChildrenManager ChildMan;
+    [SerializeField] private Camera cam;
 
     public bool idle = true;
     public bool walking = false;
@@ -81,7 +82,7 @@ public class PlayerManager : MonoBehaviour
     public void Throw()
     {
         Debug.Log("throwing");
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Debug.Log("mouse");
         Vector3 throwDir = (mousePos - Player.transform.position).normalized;
         Debug.Log("dir");
@@ -96,6 +97,9 @@ public class PlayerManager : MonoBehaviour
         cRB.velocity = new Vector2(throwDir.x, throwDir.y) * candySpeed;
         Debug.Log("velocity");
 
+        Vector3 targetPos = new Vector3(mousePos.x, mousePos.y, 0);
+
+        candy.AddComponent<CandyBehavior>().Initialize(cRB, targetPos);
 
         idle = true;
         throwing = false;
