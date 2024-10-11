@@ -16,6 +16,12 @@ public class ChildScript : MonoBehaviour
     public bool hurt = false;
     public bool treat = false;
 
+    // variables to store coroutines
+    public Coroutine IdleCo;
+    public Coroutine WalkCo;
+    public Coroutine TreatCo;
+    public Coroutine FollowCo;
+
     public GameObject candy;
 
     public int direction = 1;

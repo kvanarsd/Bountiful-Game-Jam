@@ -36,12 +36,6 @@ public class ChildrenManager : MonoBehaviour
     [SerializeField] private List<string> states;
     [SerializeField] private List<float> weights;
 
-    // variables to store coroutines
-    private Coroutine IdleCo;
-    private Coroutine WalkCo;
-    private Coroutine TreatCo;
-    private Coroutine FollowCo;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -99,7 +93,14 @@ public class ChildrenManager : MonoBehaviour
 
     public void StartIdle(GameObject child)
     {
-        IdleCo = StartCoroutine(Idle(child));
+        ChildScript script = child.GetComponent<ChildScript>();
+        script.IdleCo = StartCoroutine(Idle(child));
+    }
+
+    public void StopIdle(GameObject child)
+    {
+        ChildScript script = child.GetComponent<ChildScript>();
+        StopCoroutine(script.IdleCo);
     }
 
     public IEnumerator Idle(GameObject child)
@@ -131,12 +132,20 @@ public class ChildrenManager : MonoBehaviour
     }
 
     public void StartHorWalking(GameObject child)
-    { 
-        WalkCo = StartCoroutine(HorWalking(child));
+    {
+        ChildScript script = child.GetComponent<ChildScript>();
+        script.WalkCo = StartCoroutine(HorWalking(child));
     }
     public void StartVertWalking(GameObject child)
     {
-        WalkCo = StartCoroutine(VertWalking(child));
+        ChildScript script = child.GetComponent<ChildScript>();
+        script.WalkCo = StartCoroutine(VertWalking(child));
+    }
+
+    public void StopWalking(GameObject child)
+    {
+        ChildScript script = child.GetComponent<ChildScript>();
+        StopCoroutine(script.WalkCo);
     }
 
     public IEnumerator HorWalking(GameObject child)
@@ -221,7 +230,13 @@ public class ChildrenManager : MonoBehaviour
 
     public void StartTreat(GameObject child)
     {
-        TreatCo = StartCoroutine(TrickTreat(child));
+        ChildScript script = child.GetComponent<ChildScript>();
+        script.TreatCo = StartCoroutine(TrickTreat(child));
+    }
+    public void StopTreat(GameObject child)
+    {
+        ChildScript script = child.GetComponent<ChildScript>();
+        StopCoroutine(script.TreatCo);
     }
 
     public IEnumerator TrickTreat (GameObject child)
@@ -257,11 +272,14 @@ public class ChildrenManager : MonoBehaviour
     public void Follow(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
+        Debug.Log("start follow");
         Vector2 location = script.candy.transform.position;
+        Debug.Log("candy location");
         float speed = Random.Range(speedMin, speedMax);
 
         while (script.following)
         {
+            Debug.Log("child following");
             child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed);
         }
 

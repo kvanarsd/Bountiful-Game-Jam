@@ -17,7 +17,6 @@ public class PlayerFSM : AbstractFiniteStateMachine
         IDLE,
         WALK,
         KICK,
-        GIVE,
         THROW
     }
     private void Awake()
@@ -26,21 +25,26 @@ public class PlayerFSM : AbstractFiniteStateMachine
             AbstractState.Create<IdleState, PlayerState>(PlayerState.IDLE, this),
             AbstractState.Create<WalkState, PlayerState>(PlayerState.WALK, this),
             AbstractState.Create<KickState, PlayerState>(PlayerState.KICK, this),
-            AbstractState.Create<GiveState, PlayerState>(PlayerState.GIVE, this),
             AbstractState.Create<ThrowState, PlayerState>(PlayerState.THROW, this)
         );
 
         PlayMan = transform.GetComponent<PlayerManager>();
         rb = PlayMan.Player.GetComponent<Rigidbody2D>();
 
+        PlayMan.Player.anim.StopPlayback();
+
     }
     public class IdleState : AbstractState
     {
         public override void OnEnter()
         {
+            GetStateMachine<PlayerFSM>().PlayMan.Player.anim.StopPlayback();
+            GetStateMachine<PlayerFSM>().PlayMan.Player.anim.Play("MC_idle");
         }
         public override void OnUpdate()
         {
+
+
 
             if (GetStateMachine<PlayerFSM>().PlayMan.walking)
             {
@@ -57,6 +61,7 @@ public class PlayerFSM : AbstractFiniteStateMachine
         }
         public override void OnExit()
         {
+            GetStateMachine<PlayerFSM>().PlayMan.Player.anim.StopPlayback();
             GetStateMachine<PlayerFSM>().PlayMan.idle = false;
         }
     }
@@ -64,6 +69,7 @@ public class PlayerFSM : AbstractFiniteStateMachine
     {
         public override void OnEnter()
         {
+            GetStateMachine<PlayerFSM>().PlayMan.Player.anim.Play("MC_walk");
         }
         public override void OnUpdate()
         {
@@ -89,6 +95,14 @@ public class PlayerFSM : AbstractFiniteStateMachine
                 GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position = new Vector2(11.2f, GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.y);
             }
 
+            if (GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.y > -2.088629)
+            {
+                GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position = new Vector2(GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.x, -2.088629f);
+            }
+            if (GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.y < -3.9)
+            {
+                GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position = new Vector2(GetStateMachine<PlayerFSM>().PlayMan.Player.transform.position.x, -3.9f);
+            }
 
             if (GetStateMachine<PlayerFSM>().PlayMan.idle)
             {
@@ -105,6 +119,7 @@ public class PlayerFSM : AbstractFiniteStateMachine
         }
         public override void OnExit()
         {
+            GetStateMachine<PlayerFSM>().PlayMan.Player.anim.StopPlayback();
             GetStateMachine<PlayerFSM>().PlayMan.idle = true;
             GetStateMachine<PlayerFSM>().rb.velocity = Vector2.zero;
             GetStateMachine<PlayerFSM>().PlayMan.walking = false;
@@ -138,20 +153,7 @@ public class PlayerFSM : AbstractFiniteStateMachine
             GetStateMachine<PlayerFSM>().PlayMan.kicking = false;
         }
     }
-    public class GiveState : AbstractState
-    {
-        public override void OnEnter()
-        {
-        }
-        public override void OnUpdate()
-        {
-
-
-        }
-        public override void OnExit()
-        {
-        }
-    }
+    
     public class ThrowState : AbstractState
     {
         public override void OnEnter()
