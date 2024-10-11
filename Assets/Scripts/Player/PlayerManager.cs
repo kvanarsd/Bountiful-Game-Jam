@@ -25,9 +25,13 @@ public class PlayerManager : MonoBehaviour
     public Transform offset;
     public float candySpeed = 20f;
 
+    [SerializeField] private Sprite candy1;
+    [SerializeField] private Sprite candy2;
+    [SerializeField] private Sprite candy3;
+
 
     //animations
-    
+
 
 
     // Start is called before the first frame update
@@ -40,40 +44,43 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.anyKey == false)
+        if(Time.timeScale != 0)
         {
-            idle = true;
-        }
-
-        
-
-        if (throwing == false)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("throw click");
-                idle = false;
-                throwing = true;
-                Debug.Log("throw true " + throwing);
-                Throw();
-            }
-        }
-
-        if (kicking == false && throwing == false)
-        {
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                walking = true;
-                idle = false;
-
-            }
-            else
+            if (Input.anyKey == false)
             {
                 idle = true;
-                walking = false;
+            }
+
+
+
+            if (throwing == false)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("throw click");
+                    idle = false;
+                    throwing = true;
+                    Debug.Log("throw true " + throwing);
+                    Throw();
+                }
+            }
+
+            if (kicking == false && throwing == false)
+            {
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+                {
+                    walking = true;
+                    idle = false;
+
+                }
+                else
+                {
+                    idle = true;
+                    walking = false;
+                }
             }
         }
+        
 
         
 
