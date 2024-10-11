@@ -34,7 +34,7 @@ public class ChildrenFSM : AbstractFiniteStateMachine
     {
         public override void OnEnter()
         {
-            Debug.Log("enter idle");
+            //Debug.Log("enter idle");
             GetStateMachine<ChildrenFSM>().Manager.StartIdle(GetStateMachine<ChildrenFSM>().child);
         }
         public override void OnUpdate()
@@ -53,6 +53,7 @@ public class ChildrenFSM : AbstractFiniteStateMachine
             }
             if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().following)
             {
+                GetStateMachine<ChildrenFSM>().Manager.StopIdle(GetStateMachine<ChildrenFSM>().child);
                 TransitionToState(ChildState.FOLLOW);
             }
         }
@@ -65,7 +66,7 @@ public class ChildrenFSM : AbstractFiniteStateMachine
     {
         public override void OnEnter()
         {
-            Debug.Log("enter hor");
+            //Debug.Log("enter hor");
             GetStateMachine<ChildrenFSM>().Manager.StartHorWalking(GetStateMachine<ChildrenFSM>().child);
         }
         public override void OnUpdate()
@@ -84,13 +85,14 @@ public class ChildrenFSM : AbstractFiniteStateMachine
             }
             if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().following)
             {
+                GetStateMachine<ChildrenFSM>().Manager.StopWalking(GetStateMachine<ChildrenFSM>().child);
                 TransitionToState(ChildState.FOLLOW);
             }
         }
         public override void OnExit()
         {
             GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().horWalking = false;
-            Debug.Log("exit hor");
+            //Debug.Log("exit hor");
         }
     }
     public class VerticalWalkState : AbstractState
@@ -98,7 +100,7 @@ public class ChildrenFSM : AbstractFiniteStateMachine
         public override void OnEnter()
         {
             GetStateMachine<ChildrenFSM>().Manager.StartVertWalking(GetStateMachine<ChildrenFSM>().child);
-            Debug.Log("enter vert");
+            //Debug.Log("enter vert");
         }
         public override void OnUpdate()
         {
@@ -116,19 +118,21 @@ public class ChildrenFSM : AbstractFiniteStateMachine
             }
             if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().following)
             {
+                GetStateMachine<ChildrenFSM>().Manager.StopWalking(GetStateMachine<ChildrenFSM>().child);
                 TransitionToState(ChildState.FOLLOW);
             }
         }
         public override void OnExit()
         {
             GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().vertWalking = false;
-            Debug.Log("exit vert");
+            //Debug.Log("exit vert");
         }
     }
     public class FollowState : AbstractState
     {
         public override void OnEnter()
         {
+            Debug.Log("FSM start follow");
             GetStateMachine<ChildrenFSM>().Manager.Follow(GetStateMachine<ChildrenFSM>().child);
         }
         public override void OnUpdate()
@@ -173,6 +177,11 @@ public class ChildrenFSM : AbstractFiniteStateMachine
             if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().vertWalking)
             {
                 TransitionToState(ChildState.VERTWALK);
+            }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().following)
+            {
+                GetStateMachine<ChildrenFSM>().Manager.StopTreat(GetStateMachine<ChildrenFSM>().child);
+                TransitionToState(ChildState.FOLLOW);
             }
         }
         public override void OnExit()

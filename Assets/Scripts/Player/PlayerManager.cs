@@ -51,9 +51,11 @@ public class PlayerManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("throw click");
                 idle = false;
                 throwing = true;
-                Throw();
+                Debug.Log("throw true " + throwing);
+                //Throw();
             }
         }
 
@@ -80,14 +82,19 @@ public class PlayerManager : MonoBehaviour
     {
         Debug.Log("throwing");
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log("mouse");
         Vector3 throwDir = (mousePos - Player.transform.position).normalized;
-        GameObject candy = Instantiate(CandyPrefab, Player.transform.position, /*Player.transform.rotation*/Quaternion.identity);
+        Debug.Log("dir");
+        GameObject candy = Instantiate(CandyPrefab, Player.transform.position, Quaternion.identity);
+        Debug.Log("instan");
 
-        candy.tag = "Candy";
+        //candy.tag = "Candy";
 
         Rigidbody2D cRB = candy.GetComponent<Rigidbody2D>();
+        Debug.Log("rigi");
 
         cRB.velocity = new Vector2(throwDir.x, throwDir.y) * candySpeed;
+        Debug.Log("velocity");
 
 
         idle = true;
