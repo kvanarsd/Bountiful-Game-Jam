@@ -137,6 +137,10 @@ public class ChildrenFSM : AbstractFiniteStateMachine
         }
         public override void OnUpdate()
         {
+            if(!GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().following)
+            {
+                GetStateMachine<ChildrenFSM>().Manager.EndFollow(GetStateMachine<ChildrenFSM>().child);
+            }
             if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().idle)
             {
                 TransitionToState(ChildState.IDLE);

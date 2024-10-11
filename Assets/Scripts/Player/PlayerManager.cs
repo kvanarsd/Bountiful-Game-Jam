@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour
                 idle = false;
                 throwing = true;
                 Debug.Log("throw true " + throwing);
-                //Throw();
+                Throw();
             }
         }
 

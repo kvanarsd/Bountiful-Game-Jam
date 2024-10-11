@@ -54,7 +54,7 @@ public class ChildrenManager : MonoBehaviour
         {
             Vector3 randPos = new Vector3(Random.Range(-width, width), Random.Range(streetBottom, streetTop), 0);
             GameObject childObj = Instantiate(ChildPrefab, randPos, Quaternion.identity, transform);
-            childObj.tag = "Child";
+            childObj.name = "Child" + i;
             children.Add(childObj);
         }
     }
@@ -274,16 +274,23 @@ public class ChildrenManager : MonoBehaviour
     public void Follow(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
-        Debug.Log("start follow");
+        Debug.Log("start follow " + child.name);
         Vector2 location = script.candy.transform.position;
         Debug.Log("candy location");
         float speed = Random.Range(speedMin, speedMax);
-
-        while (script.following)
+        Debug.Log(script.following);
+        /*while (script.following)
         {
             Debug.Log("child following");
-            child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed);
-        }
+            //child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed);
+        }*/
+        
+    }
+
+    public void EndFollow(GameObject child)
+    {
+        //called when candy exits state
+        ChildScript script = child.GetComponent<ChildScript>();
 
         // choose new state
         string state = SelectState();
