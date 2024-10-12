@@ -147,7 +147,7 @@ public class PlayerManager : MonoBehaviour
 
     private IEnumerator Kick()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         idle = true;
         kicking = false;
     }
