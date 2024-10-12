@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
     public Animator anim;
 
     public bool seeParent;
+
+    public GameObject leg;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class PlayerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         seeParent = false;
+        leg.SetActive(false);
     }
 
     // Update is called once per frame

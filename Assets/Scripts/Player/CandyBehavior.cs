@@ -40,7 +40,7 @@ public class CandyBehavior : MonoBehaviour
 
     private bool IsOutOfBounds()
     {
-        if(transform.position.x < -11.2 || transform.position.x > 11.2 || transform.position.y < -3.9 || transform.position.y > -2.088629)
+        if(transform.position.x < -12.2 || transform.position.x > 12.2 || transform.position.y < -4.85 || transform.position.y > -2.86)
         {
             return true;
         }

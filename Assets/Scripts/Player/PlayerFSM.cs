@@ -128,6 +128,8 @@ public class PlayerFSM : AbstractFiniteStateMachine
     {
         public override void OnEnter()
         {
+            GetStateMachine<PlayerFSM>().PlayMan.Player.anim.Play("MC_kick");
+            GetStateMachine<PlayerFSM>().PlayMan.Player.leg.SetActive(true);
         }
         public override void OnUpdate()
         {
@@ -147,7 +149,8 @@ public class PlayerFSM : AbstractFiniteStateMachine
         }
         public override void OnExit()
         {
-
+            GetStateMachine<PlayerFSM>().PlayMan.Player.anim.StopPlayback();
+            GetStateMachine<PlayerFSM>().PlayMan.Player.leg.SetActive(false);
             GetStateMachine<PlayerFSM>().PlayMan.idle = true;
             GetStateMachine<PlayerFSM>().PlayMan.kicking = false;
         }
