@@ -51,9 +51,17 @@ public class PlayerManager : MonoBehaviour
                 idle = true;
             }
 
+           
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                idle = false;
+                kicking = true;
+                StartCoroutine(Kick());
+            }
+            
+            
 
-
-            if (throwing == false)
+            if (kicking == false)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -63,22 +71,24 @@ public class PlayerManager : MonoBehaviour
                     Debug.Log("throw true " + throwing);
                     Throw();
                 }
+
+                if(throwing == false)
+                {
+                    if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+                    {
+                        walking = true;
+                        idle = false;
+
+                    }
+                    else
+                    {
+                        idle = true;
+                        walking = false;
+                    }
+                }
             }
 
-            if (kicking == false && throwing == false)
-            {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
-                {
-                    walking = true;
-                    idle = false;
-
-                }
-                else
-                {
-                    idle = true;
-                    walking = false;
-                }
-            }
+            
         }
         
 
@@ -135,6 +145,13 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    
+    private IEnumerator Kick()
+    {
+        yield return new WaitForSeconds(1f);
+        idle = true;
+        kicking = false;
+    }
+
+
 
 }

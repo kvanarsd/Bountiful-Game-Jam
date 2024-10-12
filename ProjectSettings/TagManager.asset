@@ -10,6 +10,7 @@ TagManager:
   - SourDoor
   - Candy
   - Child
+  - Kick
   layers:
   - Default
   - TransparentFX
