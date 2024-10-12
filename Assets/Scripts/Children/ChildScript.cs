@@ -8,6 +8,7 @@ public class ChildScript : MonoBehaviour
     public SpriteRenderer sRen;
     public Animator anim;
     public string kidType;
+    public Color ogColor;
     
 
     public bool idle = true;
@@ -32,6 +33,7 @@ public class ChildScript : MonoBehaviour
     {
         sRen = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        ogColor = sRen.color;
 
         int directionChoice = Random.Range(0, 1);
         if(directionChoice == 0 )

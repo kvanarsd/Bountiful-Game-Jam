@@ -56,6 +56,11 @@ public class ChildrenFSM : AbstractFiniteStateMachine
                 GetStateMachine<ChildrenFSM>().Manager.StopIdle(GetStateMachine<ChildrenFSM>().child);
                 TransitionToState(ChildState.FOLLOW);
             }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().hurt)
+            {
+                GetStateMachine<ChildrenFSM>().Manager.StopIdle(GetStateMachine<ChildrenFSM>().child);
+                TransitionToState(ChildState.HURT);
+            }
         }
         public override void OnExit()
         {
@@ -88,11 +93,15 @@ public class ChildrenFSM : AbstractFiniteStateMachine
                 GetStateMachine<ChildrenFSM>().Manager.StopWalking(GetStateMachine<ChildrenFSM>().child);
                 TransitionToState(ChildState.FOLLOW);
             }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().hurt)
+            {
+                GetStateMachine<ChildrenFSM>().Manager.StopWalking(GetStateMachine<ChildrenFSM>().child);
+                TransitionToState(ChildState.HURT);
+            }
         }
         public override void OnExit()
         {
             GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().horWalking = false;
-            //Debug.Log("exit hor");
         }
     }
     public class VerticalWalkState : AbstractState
@@ -100,7 +109,6 @@ public class ChildrenFSM : AbstractFiniteStateMachine
         public override void OnEnter()
         {
             GetStateMachine<ChildrenFSM>().Manager.StartVertWalking(GetStateMachine<ChildrenFSM>().child);
-            //Debug.Log("enter vert");
         }
         public override void OnUpdate()
         {
@@ -121,11 +129,15 @@ public class ChildrenFSM : AbstractFiniteStateMachine
                 GetStateMachine<ChildrenFSM>().Manager.StopWalking(GetStateMachine<ChildrenFSM>().child);
                 TransitionToState(ChildState.FOLLOW);
             }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().hurt)
+            {
+                GetStateMachine<ChildrenFSM>().Manager.StopWalking(GetStateMachine<ChildrenFSM>().child);
+                TransitionToState(ChildState.HURT);
+            }
         }
         public override void OnExit()
         {
             GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().vertWalking = false;
-            //Debug.Log("exit vert");
         }
     }
     public class FollowState : AbstractState
@@ -156,9 +168,14 @@ public class ChildrenFSM : AbstractFiniteStateMachine
             {
                 TransitionToState(ChildState.TREAT);
             }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().hurt)
+            {
+                TransitionToState(ChildState.HURT);
+            }
         }
         public override void OnExit()
         {
+            GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().following = false;
         }
     }
     public class TreatState : AbstractState
@@ -186,6 +203,11 @@ public class ChildrenFSM : AbstractFiniteStateMachine
                 GetStateMachine<ChildrenFSM>().Manager.StopTreat(GetStateMachine<ChildrenFSM>().child);
                 TransitionToState(ChildState.FOLLOW);
             }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().hurt)
+            {
+                GetStateMachine<ChildrenFSM>().Manager.StopTreat(GetStateMachine<ChildrenFSM>().child);
+                TransitionToState(ChildState.HURT);
+            }
         }
         public override void OnExit()
         {
@@ -196,12 +218,34 @@ public class ChildrenFSM : AbstractFiniteStateMachine
     {
         public override void OnEnter()
         {
+            GetStateMachine<ChildrenFSM>().Manager.StartHurt(GetStateMachine<ChildrenFSM>().child);
         }
         public override void OnUpdate()
         {
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().idle)
+            {
+                TransitionToState(ChildState.IDLE);
+            }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().horWalking)
+            {
+                TransitionToState(ChildState.HORWALK);
+            }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().vertWalking)
+            {
+                TransitionToState(ChildState.VERTWALK);
+            }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().treat)
+            {
+                TransitionToState(ChildState.TREAT);
+            }
+            if (GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().following)
+            {
+                TransitionToState(ChildState.FOLLOW);
+            }
         }
         public override void OnExit()
         {
+            GetStateMachine<ChildrenFSM>().child.GetComponent<ChildScript>().hurt = false;
         }
     }
 }

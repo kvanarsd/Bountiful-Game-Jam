@@ -56,6 +56,7 @@ MonoBehaviour:
   - HEAL
   speedMin: 1
   speedMax: 2
+  kidCandy: 25
   PlayerMan: {fileID: 7836424929192937139, guid: c7df4f9116bdb1044bc15031fa79d588, type: 3}
   background: {fileID: 0}
   text: {fileID: 0}

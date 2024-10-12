@@ -15,6 +15,7 @@ public class GlobalManager : MonoBehaviour
 
     [SerializeField] private TMP_Text clock;
     [SerializeField] private TMP_Text candyCounter;
+    [SerializeField] private PlayerScript player;
 
     // check dialog
     private bool dialog = false;
@@ -32,6 +33,8 @@ public class GlobalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        candyCounter.text = player.candyHeld + " Candy";
+
         if (Time.timeScale == 0 && !dialog)
         {
             dialog = true;

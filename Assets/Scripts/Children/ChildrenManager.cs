@@ -16,6 +16,7 @@ public class ChildrenManager : MonoBehaviour
     public float speedMin = 0.5f;
     public float speedMax = 2.0f;
 
+    [SerializeField] private int kidCandy;
 
     // other refs
     [SerializeField] private PlayerManager PlayerMan;
@@ -101,7 +102,10 @@ public class ChildrenManager : MonoBehaviour
     public void StopIdle(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
-        StopCoroutine(script.IdleCo);
+        if (script.IdleCo != null)
+        {
+            StopCoroutine(script.IdleCo);
+        }
     }
 
     public IEnumerator Idle(GameObject child)
@@ -111,8 +115,8 @@ public class ChildrenManager : MonoBehaviour
         if (!script.anim)
         {
             yield return new WaitForFixedUpdate();
-            script.anim.Play(script.kidType + "_idle");
         }
+        script.anim.Play(script.kidType + "_idle");
 
         timer = Random.Range(0.5f, 2f);
         yield return new WaitForSeconds(timer);
@@ -155,7 +159,10 @@ public class ChildrenManager : MonoBehaviour
     public void StopWalking(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
-        StopCoroutine(script.WalkCo);
+        if (script.WalkCo != null)
+        {
+            StopCoroutine(script.WalkCo);
+        }       
     }
 
     public IEnumerator HorWalking(GameObject child)
@@ -245,7 +252,10 @@ public class ChildrenManager : MonoBehaviour
     public void StopTreat(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
-        StopCoroutine(script.TreatCo);
+        if (script.TreatCo != null)
+        {
+            StopCoroutine(script.TreatCo);
+        }
     }
 
     public IEnumerator TrickTreat(GameObject child)
@@ -330,6 +340,52 @@ public class ChildrenManager : MonoBehaviour
         ChildScript script = child.GetComponent<ChildScript>();
 
         // choose new state
+        string state = SelectState();
+        if (state == "idle")
+        {
+            script.idle = true;
+        }
+        else if (state == "vertWalking")
+        {
+            script.vertWalking = true;
+        }
+        else if (state == "horWalking")
+        {
+            script.horWalking = true;
+        }
+        else
+        {
+            script.treat = true;
+        }
+    }
+
+    public void StartHurt(GameObject child)
+    {
+        StartCoroutine(Hurt(child));
+    }
+
+    public IEnumerator Hurt(GameObject child)
+    {
+        PlayerMan.Player.candyHeld += kidCandy;
+
+        ChildScript script = child.GetComponent<ChildScript>();
+        // tint child red
+        script.sRen.color = new Color(
+            Mathf.Lerp(script.ogColor.r, 1f, 0.25f),
+            Mathf.Lerp(script.ogColor.g, 0f, 0.5f),
+            Mathf.Lerp(script.ogColor.b, 0f, 0.5f),
+            script.ogColor.a // Maintain the original alpha
+        );
+        script.anim.Play(script.kidType + "_idle");
+
+        yield return new WaitForSeconds(1f);
+        script.sRen.color = script.ogColor;
+
+        // choose new state
+        if(script.following)
+        {
+            yield break;
+        }
         string state = SelectState();
         if (state == "idle")
         {

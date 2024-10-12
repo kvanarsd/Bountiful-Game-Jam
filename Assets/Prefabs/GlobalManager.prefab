@@ -48,4 +48,8 @@ MonoBehaviour:
   end: 10
   minute: 0
   increment: 10
+  clock: {fileID: 0}
+  candyCounter: {fileID: 0}
+  player: {fileID: 5396495000120667895, guid: c133641c2c277924ba862d27cfb743c1, type: 3}
+  inGameCanvas: {fileID: 0}
   gameover: 0
