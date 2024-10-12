@@ -43,12 +43,14 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && pS.playerNear){
-            if(dialoguePanel.activeInHierarchy) {
-                clearText();
-            } else {
-                dialoguePanel.SetActive(true);
-                Time.timeScale=0;
-                showLine();
+            if(!lastLine && currentIndex < parentDialogue.lines.Length-1 && parentDialogue.lines.Length != 0){
+                if(dialoguePanel.activeInHierarchy) {
+                    clearText();
+                } else {
+                    dialoguePanel.SetActive(true);
+                    Time.timeScale=0;
+                    showLine();
+                }
             }
         }
     }
@@ -123,7 +125,13 @@ public class DialogueManager : MonoBehaviour
     public void CloseText()
     {
         clearText();
-        lastLine = false;
+        //Debug.Log(currentHearts);
+        if(currentIndex < parentDialogue.lines.Length-1){
+            currentIndex++;
+            lastLine = false;
+        } else {
+            lastLine = true;
+        }
         exitButton.SetActive(false);
         dialoguePanel.SetActive(false);
         Time.timeScale = 1;
