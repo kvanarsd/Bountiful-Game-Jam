@@ -24,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     public Transform offset;
     public float candySpeed = 20f;
     private Vector2 inBoundsMouse;
+    public int candyThrow = 50;
 
     [SerializeField] private Sprite candy1;
     [SerializeField] private Sprite candy2;
@@ -63,7 +64,7 @@ public class PlayerManager : MonoBehaviour
 
             if (kicking == false)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && Player.candyHeld >= candyThrow)
                 {
                     inBoundsMouse = cam.ScreenToWorldPoint(Input.mousePosition);
                     if (inBoundsMouse.x < -12.2 || inBoundsMouse.x > 12.2 || inBoundsMouse.y < -4.85 || inBoundsMouse.y > -2.6)
@@ -73,10 +74,11 @@ public class PlayerManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("throw click");
+                        //Debug.Log("throw click");
                         idle = false;
                         throwing = true;
-                        Debug.Log("throw true " + throwing);
+                        //Debug.Log("throw true " + throwing);
+                        Player.candyHeld -= candyThrow;
                         Throw();
                     }
                     
