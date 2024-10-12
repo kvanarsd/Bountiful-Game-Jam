@@ -12,4 +12,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3398ca2fb12a7e449b7db45324538525, type: 3}
   m_Name: SweetLines
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - dialogueText: '*A curvy woman in a 1920s flapper dress opens the door, smiling
+      kindly at you* Hey there cutie, looking for a sweet treat?'
+    choices:
+    - choiceText: 'oh you bet I am >:) *growls like an alpha* '
+      hearts: -1
+      nextIndex: 1
+    - choiceText: "Why of course m\u2019wady. In fwact, i think I see my pwefewed
+        tweat wight in fwont of me.. You look qwite stunning in that dwess, but I
+        bet you pwobably hear that all the time *Tips ghost fedora*"
+      hearts: 1
+      nextIndex: 2
+  - dialogueText: "Oh my\u2026 er\u2026. I think.. I hear my darling calling for
+      me, sorry!"
+    choices: []
+  - dialogueText: "Aww, how sweet of you! I always wished I was born in this era..
+      I bet I\u2019d throw just the grandest parties! *She looks starry eyed*"
+    choices: []
+  - dialogueText: "Why hello again sweetie! Say, I was thinking- if I threw a roaring
+      twenties party, would you come? Oh, it\u2019d be an absolute ball! Bright lights,
+      delicious food, and sparkling flutes of champagne!"
+    choices:
+    - choiceText: I would attend any event held by such a captivating hostess such
+        as yourself!
+      hearts: 1
+      nextIndex: 4
+    - choiceText: "I\u2019d have to check my schedule\u2026 but maybe?"
+      hearts: -1
+      nextIndex: 5
+  - dialogueText: "Oh, you\u2026 *She Blushes* What a flirt! I can\u2019t wait to
+      begin planning, I\u2019ll invite the whole neighborhood!"
+    choices: []
+  - dialogueText: "Ah, of course.. I suppose not everyone has time to party\u2026"
+    choices: []
+  - dialogueText: "Oh it's you again! My my, I only have so much candy to give out..
+      unless it's something else you\u2019re looking for? *She looks at you with
+      a teasing smile\u2026 and a hopeful glimmer in her eyes*"
+    choices:
+    - choiceText: "Your beauty simply draws me in\u2026 like a far away desire that
+        I yearn to reach!"
+      hearts: -1
+      nextIndex: 7
+    - choiceText: "I can\u2019t hold it in anymore-- I know I might be young, but
+        I know you\u2019re the one I want!"
+      hearts: 1
+      nextIndex: 8
+  - dialogueText: "*She looks disappointed.* Only yearn to? When you get to my age,
+      yearning and wishing only gets you so far\u2026 I need someone with more confidence
+      than that."
+    choices: []
+  - dialogueText: '*Her eyes shine with delight.* My goodness! Such burning passion..
+      I love it!!'
+    choices: []
