@@ -18,6 +18,7 @@ public class GlobalManager : MonoBehaviour
 
     // check dialog
     private bool dialog = false;
+    public Canvas inGameCanvas;
 
     // game end
     public bool gameover = false;
@@ -31,14 +32,17 @@ public class GlobalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 && !dialog)
         {
             dialog = true;
-        } else if (dialog)
+            inGameCanvas.enabled = false;
+
+        } else if (dialog && Time.timeScale != 0)
         {
             minute += 30;
             AddClock();
             dialog = false;
+            inGameCanvas.enabled = true;
         }
         
     }

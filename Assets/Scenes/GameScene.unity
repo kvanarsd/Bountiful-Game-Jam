@@ -4874,6 +4874,10 @@ PrefabInstance:
       propertyPath: candyCounter
       value: 
       objectReference: {fileID: 696345068}
+    - target: {fileID: 5732076144671724735, guid: 30ffbc7bee5d6684f96ddf842ab3b81b, type: 3}
+      propertyPath: inGameCanvas
+      value: 
+      objectReference: {fileID: 300419558}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
