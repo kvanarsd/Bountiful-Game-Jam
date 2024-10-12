@@ -42,7 +42,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && pS.playerNear){
+        if(Input.GetKeyDown(KeyCode.E) && pS.playerNear && pS.childCount == 0){
             if(!lastLine && currentIndex < parentDialogue.lines.Length-1 && parentDialogue.lines.Length != 0){
                 if(dialoguePanel.activeInHierarchy) {
                     clearText();
