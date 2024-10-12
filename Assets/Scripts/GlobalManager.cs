@@ -20,6 +20,7 @@ public class GlobalManager : MonoBehaviour
     // check dialog
     private bool dialog = false;
     public Canvas inGameCanvas;
+    public Canvas titleCanvas;
 
     // game end
     public bool gameover = false;
@@ -33,6 +34,13 @@ public class GlobalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (titleCanvas.enabled)
+        {
+            Time.timeScale = 0;
+        } else if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
         candyCounter.text = player.candyHeld + " Candy";
 
         if (Time.timeScale == 0 && !dialog)
