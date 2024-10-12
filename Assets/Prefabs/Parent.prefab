@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4007368137247249736}
   - component: {fileID: 1923858390485812825}
   - component: {fileID: 328103712189497434}
-  - component: {fileID: 8317539912043064129}
+  - component: {fileID: 7707951995029180765}
   - component: {fileID: 7434916543251376788}
   m_Layer: 0
   m_Name: Parent
@@ -206,12 +206,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   openSprite: {fileID: 0}
   closeSprite: {fileID: 0}
-  textBox: {fileID: 0}
   playerNear: 0
-  exitButton: {fileID: 0}
   text: {fileID: 4927887785149663343}
   CHILDREN_ALLOWED: 0
---- !u!114 &8317539912043064129
+--- !u!114 &7707951995029180765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,9 +218,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6120912824558301774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b37b3a92013b074ab1400db86307233, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ed1cacf1a22f324ca354842c4d0a05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentSprite: {fileID: 0}
+  textBox: {fileID: 0}
+  exitButton: {fileID: 0}
+  pS: {fileID: 0}
 --- !u!61 &7434916543251376788
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody2D rb;
 
     // other refs
-    [SerializeField] private ParentManager ParentMan;
     [SerializeField] private ChildrenManager ChildMan;
     [SerializeField] private Camera cam;
 

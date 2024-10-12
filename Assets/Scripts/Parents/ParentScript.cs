@@ -41,8 +41,10 @@ public class ParentScript : MonoBehaviour
     {
         if (person.tag == "Player" && !doorOpen){
             playerNear = true;
-            doorOpen = true;
-            spriteRenderer.sprite = openSprite;
+            if(!doorOpen){
+                doorOpen = true;
+                spriteRenderer.sprite = openSprite;
+            }
         }
         if(person.tag == "Child"){
             childCount++;
@@ -58,10 +60,12 @@ public class ParentScript : MonoBehaviour
     //closes door when player leaves, or when all the children leave
     void OnTriggerExit2D(Collider2D person)
     {
-        if(person.tag == "Player" && childCount == 0){
+        if(person.tag == "Player"){
             playerNear = false;
-            doorOpen = false;
-            spriteRenderer.sprite = closeSprite;
+            if(childCount == 0){
+                doorOpen = false;
+                spriteRenderer.sprite = closeSprite;
+            }
         } 
         if(person.tag == "Child"){
             childCount--;

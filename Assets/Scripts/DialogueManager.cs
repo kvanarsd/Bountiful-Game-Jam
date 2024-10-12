@@ -38,13 +38,11 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && pS.playerNear){
-            if(textBox.activeInHierarchy){
-
-            } else {
+            if(!textBox.activeInHierarchy){
+                Debug.Log("setting to active");
                 textBox.SetActive(true);
-                exitButton.SetActive(true);
                 Time.timeScale=0;
-            }
+            } 
         }
     }
 
