@@ -20,6 +20,8 @@ public class GlobalManager : MonoBehaviour
     // check dialog
     private bool dialog = false;
     public Canvas inGameCanvas;
+    public Canvas titleCanvas;
+    public Canvas pauseCanvas;
 
     // game end
     public bool gameover = false;
@@ -33,9 +35,17 @@ public class GlobalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        candyCounter.text = player.candyHeld + " Candy";
+        // pause game
+        if (titleCanvas.enabled || pauseCanvas.enabled)
+        {
+            Time.timeScale = 0;
+        } else if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
 
-        if (Time.timeScale == 0 && !dialog)
+        // check for dialog pause
+        if (Time.timeScale == 0 && !dialog && !titleCanvas.enabled && !pauseCanvas.enabled)
         {
             dialog = true;
             inGameCanvas.enabled = false;
@@ -47,7 +57,10 @@ public class GlobalManager : MonoBehaviour
             dialog = false;
             inGameCanvas.enabled = true;
         }
-        
+
+        // add candy
+        candyCounter.text = player.candyHeld + " Candy";
+
     }
 
     private IEnumerator OneMinute()
@@ -69,7 +82,14 @@ public class GlobalManager : MonoBehaviour
             minute = minute - 60;
         }
 
-        clock.text = hour + ":" + minute + " pm";
+        if (minute == 0)
+        {
+            clock.text = hour + ":00 pm";
+        }
+        else
+        {
+            clock.text = hour + ":" + minute + " pm";
+        }
 
         if (hour >= end)
         {
