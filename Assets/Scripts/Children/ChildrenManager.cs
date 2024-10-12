@@ -284,7 +284,7 @@ public class ChildrenManager : MonoBehaviour
         float speed = Random.Range(speedMin, speedMax);
 
         float threshold = 0.01f;
-        while (script.following || Vector2.Distance(child.transform.position, location) > threshold)
+        while (script.following && Vector2.Distance(child.transform.position, location) > threshold)
         {
             child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed/2 * Time.deltaTime);
             location = script.candy.transform.position;

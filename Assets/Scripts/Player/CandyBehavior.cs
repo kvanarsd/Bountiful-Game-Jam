@@ -53,21 +53,11 @@ public class CandyBehavior : MonoBehaviour
         yield return new WaitForSeconds(5f);
         Debug.Log("after yield");
         gameObject.transform.position = new Vector3(1000, 1000, 1000);
-
-        StartCoroutine(DestroyAfter());
+        Debug.Log(transform.position);
+        Destroy(gameObject);
         Debug.Log("after teleport");
     }
-    private IEnumerator DestroyAfter()
-    {
-        Debug.Log("before yield");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("after yield");
-        Destroy(gameObject);
-        Debug.Log("after destroy");
-    }
+    
 
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
+    
 }
