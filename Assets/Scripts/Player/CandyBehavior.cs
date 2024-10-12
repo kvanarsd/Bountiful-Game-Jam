@@ -12,16 +12,20 @@ public class CandyBehavior : MonoBehaviour
     {
         rb = cRB;
         targetPos = target;
-        StartCoroutine(DestroyAfter());
+        StartCoroutine(teleport());
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        if(Vector2.Distance(transform.position, targetPos) <= stopPoint || IsOutOfBounds())
+        if (Vector2.Distance(transform.position, targetPos) <= stopPoint || IsOutOfBounds())
         {
-            rb.velocity = Vector2.zero;
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero;
+            }
+            
         }
     }
 
@@ -43,10 +47,20 @@ public class CandyBehavior : MonoBehaviour
         return false;
     }
 
-    private IEnumerator DestroyAfter()
+    private IEnumerator teleport()
     {
         Debug.Log("before yield");
         yield return new WaitForSeconds(5f);
+        Debug.Log("after yield");
+        gameObject.transform.position = new Vector3(1000, 1000, 1000);
+
+        StartCoroutine(DestroyAfter());
+        Debug.Log("after teleport");
+    }
+    private IEnumerator DestroyAfter()
+    {
+        Debug.Log("before yield");
+        yield return new WaitForSeconds(1f);
         Debug.Log("after yield");
         Destroy(gameObject);
         Debug.Log("after destroy");

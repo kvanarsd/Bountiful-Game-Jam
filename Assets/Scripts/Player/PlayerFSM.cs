@@ -43,8 +43,7 @@ public class PlayerFSM : AbstractFiniteStateMachine
         }
         public override void OnUpdate()
         {
-
-
+            
 
             if (GetStateMachine<PlayerFSM>().PlayMan.walking)
             {

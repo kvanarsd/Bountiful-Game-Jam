@@ -96,6 +96,18 @@ public class PlayerManager : MonoBehaviour
         GameObject candy = Instantiate(CandyPrefab, Player.transform.position, Quaternion.identity);
         Debug.Log("instan");
 
+        int ranCandy = Random.Range(1, 4);
+        if (ranCandy == 1)
+        {
+            candy.GetComponent<SpriteRenderer>().sprite = candy1;
+        }else if (ranCandy == 2)
+        {
+            candy.GetComponent<SpriteRenderer>().sprite = candy2;
+        }else if (ranCandy == 3)
+        {
+            candy.GetComponent<SpriteRenderer>().sprite = candy3;
+        }
+
         //candy.tag = "Candy";
 
         Rigidbody2D cRB = candy.GetComponent<Rigidbody2D>();
@@ -123,16 +135,6 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(idle == true)
-        {
-            Player.anim.Play("MC_idle");
-            if (collision.tag == "HealthyDoor" || collision.tag == "ChocolateDoor" || collision.tag == "SweetDoor" || collision.tag == "SourDoor")
-            {
-                Player.anim.Play("MC_love");
-            }
-        }
-    }
+    
 
 }
