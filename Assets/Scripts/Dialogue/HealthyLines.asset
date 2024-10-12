@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HealthyLines
   m_EditorClassIdentifier: 
   lines:
-  - dialogueText: "[The door swings open confidently. From behind the door emerges
-      a\u2026 scientist? A lab coat could really mean anything\u2026]"
+  - dialogueText: "*The door swings open confidently. From behind the door emerges
+      a\u2026 scientist? A lab coat could really mean anything\u2026*"
     choices:
     - choiceText: "Happy Halloween! Miss\u2026 scientist?"
       hearts: -1
