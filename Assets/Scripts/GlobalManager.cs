@@ -39,10 +39,7 @@ public class GlobalManager : MonoBehaviour
         if (titleCanvas.enabled || pauseCanvas.enabled)
         {
             Time.timeScale = 0;
-        } else if (Time.timeScale != 1)
-        {
-            Time.timeScale = 1;
-        }
+        } 
 
         // check for dialog pause
         if (Time.timeScale == 0 && !dialog && !titleCanvas.enabled && !pauseCanvas.enabled)
@@ -56,6 +53,9 @@ public class GlobalManager : MonoBehaviour
             AddClock();
             dialog = false;
             inGameCanvas.enabled = true;
+        } else if (!dialog && Time.timeScale != 1)
+        {
+                Time.timeScale = 1;
         }
 
         // add candy

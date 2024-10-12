@@ -378,7 +378,23 @@ public class ChildrenManager : MonoBehaviour
         );
         script.anim.Play(script.kidType + "_idle");
 
-        yield return new WaitForSeconds(1f);
+        float timer = 0.35f;
+        while (timer > 0f)
+        {
+            child.transform.Translate(Vector3.right * 10 * script.horDirection * Time.deltaTime);
+
+            timer -= Time.deltaTime;
+
+            // stop at boundaries
+            if ((child.transform.position.x >= width && script.horDirection == 1) || (child.transform.position.x <= -width && script.horDirection == -1))
+            {
+                timer = 0;
+            }
+            
+            yield return null;
+        }
+
+        // end hurt
         script.sRen.color = script.ogColor;
 
         // choose new state
