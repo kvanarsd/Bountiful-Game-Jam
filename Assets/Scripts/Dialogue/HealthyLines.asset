@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3398ca2fb12a7e449b7db45324538525, type: 3}
+  m_Name: HealthyLines
+  m_EditorClassIdentifier: 
+  lines:
+  - dialogueText: "*The door swings open confidently. From behind the door emerges
+      a\u2026 scientist? A lab coat could really mean anything\u2026*"
+    choices:
+    - choiceText: "Happy Halloween! Miss\u2026 scientist?"
+      hearts: -1
+      nextIndex: 1
+    - choiceText: Happy Halloween Doc!
+      hearts: 0
+      nextIndex: 2
+  - dialogueText: "oh\u2026 could you not tell I\u2019m a doctor?"
+    choices: []
+  - dialogueText: Happy Halloween to you too! Your ghost costume looks great!
+    choices: []

@@ -39,7 +39,7 @@ public class ParentScript : MonoBehaviour
     //opens door when the player is at the door or when children are at the door
     void OnTriggerEnter2D(Collider2D person)
     {
-        if (person.tag == "Player" && !doorOpen){
+        if (person.tag == "Player"){
             playerNear = true;
             if(!doorOpen){
                 doorOpen = true;
