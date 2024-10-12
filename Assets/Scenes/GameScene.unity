@@ -5627,6 +5627,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 443314483}
     - target: {fileID: 5732076144671724735, guid: 30ffbc7bee5d6684f96ddf842ab3b81b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6001103432693416958}
+    - target: {fileID: 5732076144671724735, guid: 30ffbc7bee5d6684f96ddf842ab3b81b, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1448404794}
