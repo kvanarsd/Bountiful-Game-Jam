@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
 
     // parent script, used for playerNear
     public ParentScript pS;
+    // player script, used for candyHeld
+    public PlayerScript plS;
 
     // the delay and buttons for choice 1 and choice 2, and their respective text boxes
     public float choiceDelay = 1f;
@@ -42,11 +44,12 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && pS.playerNear && pS.childCount == 0){
+        if(Input.GetKeyDown(KeyCode.E) && pS.playerNear && pS.childCount == 0 && plS.candyHeld >= 250){
             if(!lastLine && currentIndex < parentDialogue.lines.Length-1 && parentDialogue.lines.Length != 0){
                 if(dialoguePanel.activeInHierarchy) {
                     clearText();
                 } else {
+                    plS.candyHeld -= 250;
                     dialoguePanel.SetActive(true);
                     Time.timeScale=0;
                     showLine();
