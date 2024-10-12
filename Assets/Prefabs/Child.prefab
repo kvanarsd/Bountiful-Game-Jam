@@ -119,6 +119,7 @@ MonoBehaviour:
   sRen: {fileID: 0}
   anim: {fileID: 0}
   kidType: 
+  ogColor: {r: 0, g: 0, b: 0, a: 0}
   idle: 1
   vertWalking: 0
   horWalking: 0
@@ -126,7 +127,8 @@ MonoBehaviour:
   hurt: 0
   treat: 0
   candy: {fileID: 0}
-  direction: 1
+  horDirection: 1
+  vertDirection: 1
 --- !u!50 &8030484828410634245
 Rigidbody2D:
   serializedVersion: 4
@@ -320,9 +322,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.39}
   serializedVersion: 2
-  m_Radius: 1.25
+  m_Radius: 0.89
 --- !u!114 &1551517483688669659
 MonoBehaviour:
   m_ObjectHideFlags: 0

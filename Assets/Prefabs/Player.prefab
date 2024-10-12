@@ -136,6 +136,8 @@ MonoBehaviour:
   candyOnGround: 0
   sRen: {fileID: 9134881962030360496}
   anim: {fileID: 3348245527816432395}
+  seeParent: 0
+  leg: {fileID: 0}
 --- !u!50 &8939690702853617467
 Rigidbody2D:
   serializedVersion: 4
