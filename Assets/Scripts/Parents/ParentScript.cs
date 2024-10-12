@@ -15,7 +15,7 @@ public class ParentScript : MonoBehaviour
     public Sprite closeSprite;
 
     private bool doorOpen = false;
-    private int childCount = 0;
+    public int childCount = 0;
     public bool playerNear;
 
     [SerializeField] private TMP_Text text;
