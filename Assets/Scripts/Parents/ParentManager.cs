@@ -6,7 +6,6 @@ using static Unity.VisualScripting.Metadata;
 public class ParentManager : MonoBehaviour
 {
     public GameObject ParentPrefab;
-    private List<ParentsFSM> parents = new List<ParentsFSM>();
 
     // other refs
     [SerializeField] private ChildrenManager ChildMan;
