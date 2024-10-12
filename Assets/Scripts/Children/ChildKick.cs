@@ -21,6 +21,10 @@ public class ChildKick : MonoBehaviour
         {
             text.enabled = true;
         }
+        if (collision.tag == "Kick")
+        {
+            transform.parent.GetComponent<ChildScript>().hurt = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
