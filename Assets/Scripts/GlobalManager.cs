@@ -22,6 +22,7 @@ public class GlobalManager : MonoBehaviour
     public Canvas inGameCanvas;
     public Canvas titleCanvas;
     public Canvas pauseCanvas;
+    private bool menu = false;
 
     // game end
     public bool gameover = false;
@@ -38,14 +39,12 @@ public class GlobalManager : MonoBehaviour
         // pause game
         if (titleCanvas.enabled || pauseCanvas.enabled)
         {
+            menu = true;
             Time.timeScale = 0;
-        } else if (Time.timeScale != 1)
-        {
-            Time.timeScale = 1;
-        }
+        } 
 
         // check for dialog pause
-        if (Time.timeScale == 0 && !dialog && !titleCanvas.enabled && !pauseCanvas.enabled)
+        if (Time.timeScale == 0 && !dialog && !menu)
         {
             dialog = true;
             inGameCanvas.enabled = false;
@@ -56,6 +55,12 @@ public class GlobalManager : MonoBehaviour
             AddClock();
             dialog = false;
             inGameCanvas.enabled = true;
+        }
+
+        if (menu && Time.timeScale != 1 && !titleCanvas.enabled && !pauseCanvas.enabled)
+        {
+            menu = false;
+            Time.timeScale = 1;
         }
 
         // add candy
