@@ -45,16 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChildPrefab: {fileID: 6895116197058032813, guid: 1f78d75a572f9674cb92befc65ea5ae7, type: 3}
-  sprites:
-  - {fileID: 21300000, guid: e71870f6b2da07945afccd63eae0bcc7, type: 3}
-  - {fileID: 21300000, guid: 7e6ec8967acf664409e1a5a526353c1a, type: 3}
-  - {fileID: 21300000, guid: d360c78769dfc914398998833d2feb6b, type: 3}
-  - {fileID: 21300000, guid: 310a1242d1bc174449281fdadf770479, type: 3}
+  kidTypes:
+  - CHOC
+  - BEE
+  - MAGI
+  - SOUR
+  - ZOM
+  - SWEET
+  - WRES
+  - HEAL
   speedMin: 1
   speedMax: 2
-  ParentMan: {fileID: 7419549873057768204, guid: a648068aa58ffdc42abbdfb4045acffe, type: 3}
   PlayerMan: {fileID: 7836424929192937139, guid: c7df4f9116bdb1044bc15031fa79d588, type: 3}
   background: {fileID: 0}
+  text: {fileID: 0}
   maxChildren: 1
   width: 1000
   streetTop: 100

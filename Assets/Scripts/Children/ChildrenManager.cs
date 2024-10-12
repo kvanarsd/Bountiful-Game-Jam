@@ -11,14 +11,13 @@ public class ChildrenManager : MonoBehaviour
 {
     [SerializeField] private GameObject ChildPrefab;
     private List<GameObject> children = new List<GameObject>();
-    [SerializeField] private List<Sprite> sprites = new List<Sprite>();
+    [SerializeField] private List<string> kidTypes = new List<string>();
 
     public float speedMin = 0.5f;
     public float speedMax = 2.0f;
 
 
     // other refs
-    [SerializeField] private ParentManager ParentMan;
     [SerializeField] private PlayerManager PlayerMan;
     [SerializeField] private SpriteRenderer background;
     private List<Vector2> doors = new List<Vector2>();
@@ -54,7 +53,7 @@ public class ChildrenManager : MonoBehaviour
         {
             Vector3 randPos = new Vector3(Random.Range(-width, width), Random.Range(streetBottom, streetTop), 0);
             GameObject childObj = Instantiate(ChildPrefab, randPos, Quaternion.identity, transform);
-            childObj.name = "Child" + i;
+            childObj.GetComponent<ChildScript>().kidType = kidTypes[Random.Range(0, kidTypes.Count)];
             children.Add(childObj);
         }
     }
@@ -107,9 +106,16 @@ public class ChildrenManager : MonoBehaviour
 
     public IEnumerator Idle(GameObject child)
     {
+        ChildScript script = child.GetComponent<ChildScript>();
+        
+        if (!script.anim)
+        {
+            yield return new WaitForFixedUpdate();
+            script.anim.Play(script.kidType + "_idle");
+        }
+
         timer = Random.Range(0.5f, 2f);
         yield return new WaitForSeconds(timer);
-        ChildScript script = child.GetComponent<ChildScript>();
 
         script.idle = false;
 
@@ -136,11 +142,13 @@ public class ChildrenManager : MonoBehaviour
     public void StartHorWalking(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
+        script.anim.Play(script.kidType + "_walk");
         script.WalkCo = StartCoroutine(HorWalking(child));
     }
     public void StartVertWalking(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
+        script.anim.Play(script.kidType + "_walk");
         script.WalkCo = StartCoroutine(VertWalking(child));
     }
 
@@ -159,14 +167,13 @@ public class ChildrenManager : MonoBehaviour
 
         while (timer > 0f)
         {
-            child.transform.Translate(Vector3.right * speed * script.direction * Time.deltaTime);
+            child.transform.Translate(Vector3.right * speed * script.horDirection * Time.deltaTime);
 
-            // Switch direction at boundaries
-            if (child.transform.position.x >= width || child.transform.position.x <= -width)
+            // Switch horDirection at boundaries
+            if ((child.transform.position.x >= width && script.horDirection == 1 ) || (child.transform.position.x <= -width && script.horDirection == -1))
             {
-                script.direction *= -1;
-            }
-
+                script.horDirection *= -1;
+            } 
 
             timer -= Time.deltaTime;
             yield return null;
@@ -197,14 +204,13 @@ public class ChildrenManager : MonoBehaviour
 
         while (timer > 0f)
         {
-            child.transform.Translate(Vector3.up * speed / 2 * script.direction * Time.deltaTime);
+            child.transform.Translate(Vector3.up * speed / 2 * script.vertDirection * Time.deltaTime);
 
             // Switch direction at boundaries
             if (child.transform.position.y >= streetTop || child.transform.position.y <= streetBottom)
             {
-                script.direction *= -1;
-            }
-
+                script.vertDirection *= -1;
+            } 
 
             timer -= Time.deltaTime;
             yield return null;
@@ -233,6 +239,7 @@ public class ChildrenManager : MonoBehaviour
     public void StartTreat(GameObject child)
     {
         ChildScript script = child.GetComponent<ChildScript>();
+        script.anim.Play(script.kidType + "_walk");
         script.TreatCo = StartCoroutine(TrickTreat(child));
     }
     public void StopTreat(GameObject child)
@@ -249,17 +256,28 @@ public class ChildrenManager : MonoBehaviour
         float speed = Random.Range(speedMin, speedMax);
         float threshold = 0.01f;
 
+        ChildScript script = child.GetComponent<ChildScript>();
+
         while (Vector2.Distance(child.transform.position, door) > threshold)
         {
+            if(child.transform.position.x  < door.x)
+            {
+                script. horDirection = 1;
+            } else if (child.transform.position.x > door.x)
+            {
+                script.horDirection = -1;
+            }
             child.transform.position = Vector2.MoveTowards(child.transform.position, door, speed / 2 * Time.deltaTime);
             yield return null;
         }
+
+        
+        script.anim.Play(script.kidType + "_idle");
 
         yield return new WaitForSeconds(Random.Range(1f, 3f));
 
         // If not treat again then move down (away from door
         string state = SelectState();
-        ChildScript script = child.GetComponent<ChildScript>();
 
         if (state == "treat")
         {
@@ -273,6 +291,8 @@ public class ChildrenManager : MonoBehaviour
 
     public void StartFollow(GameObject child)
     {
+        ChildScript script = child.GetComponent<ChildScript>();
+        script.anim.Play(script.kidType + "_walk");
         StartCoroutine(Follow(child));
     }
     public IEnumerator Follow(GameObject child)
@@ -286,12 +306,22 @@ public class ChildrenManager : MonoBehaviour
         float threshold = 0.01f;
         while (script.following && Vector2.Distance(child.transform.position, location) > threshold)
         {
+            if (child.transform.position.x < location.x)
+            {
+                script.horDirection = 1;
+            }
+            else
+            {
+                script.horDirection = -1;
+            }
             child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed/2 * Time.deltaTime);
             location = script.candy.transform.position;
             location += adjust;
             yield return null;
         }
-        
+
+        script.anim.Play(script.kidType + "_idle");
+
     }
 
     public void EndFollow(GameObject child)

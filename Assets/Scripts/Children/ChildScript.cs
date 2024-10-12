@@ -6,7 +6,8 @@ using UnityEngine;
 public class ChildScript : MonoBehaviour
 {
     public SpriteRenderer sRen;
-    //private Rigidbody2D rb;
+    public Animator anim;
+    public string kidType;
     
 
     public bool idle = true;
@@ -20,28 +21,35 @@ public class ChildScript : MonoBehaviour
     public Coroutine IdleCo;
     public Coroutine WalkCo;
     public Coroutine TreatCo;
-    public Coroutine FollowCo;
 
     public GameObject candy;
     
-    public int direction = 1;
+    public int horDirection = 1;
+    public int vertDirection = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         sRen = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         int directionChoice = Random.Range(0, 1);
         if(directionChoice == 0 )
         {
-            direction = -1;
+            horDirection = -1;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(horDirection == 1 )
+        {
+            sRen.flipX = true;
+        } else
+        {
+            sRen.flipX = false;
+        }
     }
 
     
