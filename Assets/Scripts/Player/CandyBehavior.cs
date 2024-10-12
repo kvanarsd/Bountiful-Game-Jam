@@ -19,7 +19,7 @@ public class CandyBehavior : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (Vector2.Distance(transform.position, targetPos) <= stopPoint || IsOutOfBounds())
+        if (Vector2.Distance(transform.position, targetPos) <= stopPoint)
         {
             if (rb != null)
             {
