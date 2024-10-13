@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_text
-      value: Sweet Mom
+      value: Marilyn S.
       objectReference: {fileID: 0}
     - target: {fileID: 5615790206292677809, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_Name
@@ -3001,7 +3001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_text
-      value: Sour Dad
+      value: Sean S.
       objectReference: {fileID: 0}
     - target: {fileID: 6176038901240172975, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_IsActive
@@ -6317,7 +6317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_text
-      value: Chocolate Dad
+      value: William C.
       objectReference: {fileID: 0}
     - target: {fileID: 7211806655747154549, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_SizeDelta.x
@@ -10104,7 +10104,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_text
-      value: Healthy Mom
+      value: Janice H.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4332994623948201035, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_HorizontalAlignment
