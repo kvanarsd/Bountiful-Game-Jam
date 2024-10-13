@@ -4,7 +4,7 @@ using UnityEngine;
 using KevinCastejon.FiniteStateMachine;
 using Unity.VisualScripting;
 using UnityEngine.UI;
-using static UnityEditor.FilePathAttribute;
+
 using TMPro;
 
 public class ChildrenManager : MonoBehaviour
