@@ -1,11 +1,10 @@
-//using Microsoft.Unity.VisualStudio.Editor;
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GlobalManager : MonoBehaviour
 {
@@ -32,16 +31,18 @@ public class GlobalManager : MonoBehaviour
     public Canvas endMenu;
     public GameObject Death;
     public GameObject Love;
-    public Image lover;
     public GameObject Kicked;
     public GameObject King;
     public GameObject Rejected;
     public TMP_Text endCandy;
+    public TMP_Text date;
 
     // ending choice variables
     public int highCandy;
     public int midCandy;
     public List<DialogueManager> parents;
+    public List<GameObject> images;
+    public List<string> names; 
 
     // Start is called before the first frame update
     void Start()
@@ -125,49 +126,46 @@ public class GlobalManager : MonoBehaviour
 
     private void EndGame()
     {
+        endMenu.enabled = true;
         endCandy.text = candyCounter.text;
 
         // check hearts
         bool love = false;
         bool attemptedLove = false;
-        foreach (DialogueManager parent in parents)
+        for (int i = 0; i < parents.Count; i++)
         {
-            if(parent.currentHearts >= 3)
+            if (parents[i].currentHearts >= 3)
             {
+                Debug.Log("love");
                 love = true;
-                lover = parent.parentSprite;
+                images[i].SetActive(true);
+                date.text = "You're cured! Enjoy a lovely night with " + names[i];
                 break;
             }
-            if (parent.currentHearts > 0)
+            if (parents[i].currentHearts > 0)
             {
+                Debug.Log("attempt");
                 attemptedLove = true;
             }
-        }
-
-        if(player.candyHeld < midCandy)
-        {
-            Death.SetActive(true);
-        }
-        if(player.candyHeld < highCandy)
-        {
-            Kicked.SetActive(true);
-        }
-        if(player.candyHeld >= highCandy)
-        {
-            King.SetActive(true);
         }
         if (love)
         {
             Love.SetActive(true);
-        }
-        if (player.candyHeld < highCandy && attemptedLove)
+        } else if(player.candyHeld < midCandy)
+        {
+            Death.SetActive(true);
+        }else if (player.candyHeld < midCandy && player.candyHeld < highCandy && attemptedLove)
+        {
+            Rejected.SetActive(true);
+        }else if(player.candyHeld < highCandy)
         {
             Kicked.SetActive(true);
-        }
-        if (player.candyHeld >= highCandy)
+        }else if(player.candyHeld >= highCandy)
         {
             King.SetActive(true);
         }
+        
+        
     }
 
     public void Reset()
