@@ -64,10 +64,10 @@ MonoBehaviour:
       nextIndex: 8
   - dialogueText: '[He snatches the flashlight from you] The hells wrong with you?
       You''re gonna make me lose a finger! Piss off.'
-    parentEmote: {fileID: 709821004, guid: a165d678fa55f5e4aaa4d4cd1a0e17e2, type: 3}
+    parentEmote: {fileID: -1692164640, guid: d23b05517d551f44b83103f836260647, type: 3}
     choices: []
   - dialogueText: '[He finishes wrenching a part into place, and turns to you] You''re
       more capable than I thought you were. Hey, you know what? Once I fix this baby
       up, maybe we can go for a ride... [You see him blush slightly.]'
-    parentEmote: {fileID: 587037546, guid: ea8621290c6140d40a49abc7c738065c, type: 3}
+    parentEmote: {fileID: -1451631778, guid: 5c5dec9a2e146424b99e5c0444275d74, type: 3}
     choices: []

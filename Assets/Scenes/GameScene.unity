@@ -959,7 +959,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 331857764, guid: 51bdfb5f26ca22243857fee59f78b192, type: 3}
+  m_Sprite: {fileID: 848522790, guid: d88672e96af6bd3478b413581b97de66, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 03567a9f226877c4ca3f77f9ef32034c, type: 3}
+  m_Sprite: {fileID: -1451631778, guid: 5c5dec9a2e146424b99e5c0444275d74, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1674,7 +1674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -68303024, guid: 9dae7682f366b41478ed5c3cb7610ca7, type: 3}
+  m_Sprite: {fileID: 1063316859, guid: f27fe3e20442ba5449edc3410680191a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3320,7 +3320,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Claire Lin, Lily Chen
+  m_text: 'Claire Lin, Lily Chen
+
+    logo by Renee'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ea31bdf62aed3e47a1ee12c7724b6c3, type: 2}
   m_sharedMaterial: {fileID: 475140886039888513, guid: 6ea31bdf62aed3e47a1ee12c7724b6c3, type: 2}
@@ -5572,7 +5574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1518370491, guid: e6c9c6cf44ec66b438633d00dd2489ae, type: 3}
+  m_Sprite: {fileID: -1655556669, guid: e90fa21c4f13ef64b8b87fdd32ae107f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
