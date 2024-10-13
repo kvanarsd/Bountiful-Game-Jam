@@ -15,6 +15,7 @@ MonoBehaviour:
   lines:
   - dialogueText: '[A man fully decked out in an old-fashioned Detective''s outfit
       greets you at the door inquisitively] Hello there, can I help you?'
+    parentEmote: {fileID: -568071805, guid: 21ce8d0d27e86354f93082de296e4f47, type: 3}
     choices:
     - choiceText: Quick detective, it's time to embark on a cinematic adventure full
         of drama, thrills, and PASSIONATE KISSES!
@@ -26,15 +27,18 @@ MonoBehaviour:
   - dialogueText: '[The man in front of you furrows his brow, looking exceedingly
       uncomfortable] On days like this, there''s bound to be odd ones about... [He
       slams the door. Maybe try not to be cringe next time, freak]'
+    parentEmote: {fileID: 1179335651, guid: 5585688e733d54f429ef98288efffe2f, type: 3}
     choices: []
   - dialogueText: '[He looks surprised then smiles shyly] You like it...? I put it
       together myself, after all, I grew up on Sherlock Holmes and other mysteries.
       Unfortunately, my daughter has heavier...(bloodier) tastes... [He seems to
       grow pale just at the thought]'
+    parentEmote: {fileID: -360136522, guid: b1dbcb8f173452b48b119ef92eba0fb4, type: 3}
     choices: []
   - dialogueText: Good Eve- wait I've forgotten something... [The man shuffles a
       little awkwardly, then seems to come to a realization] Ah. Right. [He leaves
       and returns shortly with a bushy fake mustache]
+    parentEmote: {fileID: -1878446371, guid: 5032bc36f439c9a4e8c4c9cffe8b1019, type: 3}
     choices:
     - choiceText: HELL YEAH, FACIAL HAIR! NOW WE'RE TALKING, DETECTIVE SEXYMAN!
       hearts: -1
@@ -44,13 +48,16 @@ MonoBehaviour:
       nextIndex: 5
   - dialogueText: '[He winces at your uncontrollable excitement] ...perhaps I''ve
       made a mistake... [He shuts the door in your face]'
+    parentEmote: {fileID: 1779397444, guid: 568e5129e7ae21443b8640e31bf332e9, type: 3}
     choices: []
   - dialogueText: '[He laughs heartily] I wrangle a little chaotic crime-doer without
       this costume too! [His eyes widen with realization and he blushes] Wait, you
       think I''m handsome?'
+    parentEmote: {fileID: 2044322270, guid: 0085bb3dbe7ba7644a4d7668e38f0452, type: 3}
     choices: []
   - dialogueText: '[He nervously smiles as he opens the door] Hi again... Is there
       some reason you keep coming around? Not that I mind, of course.'
+    parentEmote: {fileID: -360136522, guid: b1dbcb8f173452b48b119ef92eba0fb4, type: 3}
     choices:
     - choiceText: YEAH. YOU'RE REALLY HOT. I GET LOTS OF (eye)CANDY AT YOUR HOUSE.
       hearts: -1
@@ -59,10 +66,12 @@ MonoBehaviour:
         I'd love to take you both out sometime!
       hearts: 1
       nextIndex: 8
-  - dialogueText: ...please leave me alone [He closes the door, clearly rejecting
+  - dialogueText: ...please leave me alone. [He closes the door, clearly rejecting
       your overt harassment]
+    parentEmote: {fileID: 1179335651, guid: 5585688e733d54f429ef98288efffe2f, type: 3}
     choices: []
   - dialogueText: '[His eyes light up with excitement] Really? I know my daughter
       might be a lot to handle to some.. So I really appreciate it. Maybe we could
       even play Clue!'
+    parentEmote: {fileID: 1063316859, guid: f27fe3e20442ba5449edc3410680191a, type: 3}
     choices: []

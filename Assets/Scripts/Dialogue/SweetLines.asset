@@ -15,6 +15,7 @@ MonoBehaviour:
   lines:
   - dialogueText: '[A curvy woman in a 1920s flapper dress opens the door, smiling
       kindly at you] Hey there cutie, looking for a sweet treat?'
+    parentEmote: {fileID: 60660449, guid: bb946a634f22f064e9eb4e009b4d16c4, type: 3}
     choices:
     - choiceText: 'oh you bet I am >:) *growls like an alpha* '
       hearts: -1
@@ -26,13 +27,16 @@ MonoBehaviour:
       nextIndex: 2
   - dialogueText: "Oh my\u2026 er\u2026. I think.. I hear my darling calling for
       me, sorry! [She slams the door on you.]"
+    parentEmote: {fileID: -550435699, guid: a8b169d9dbfc39f44aa056a0588b2a4e, type: 3}
     choices: []
   - dialogueText: "Aww, how sweet of you! I always wished I was born in this era..
       I bet I\u2019d throw just the grandest parties! [She looks starry eyed]"
+    parentEmote: {fileID: 848522790, guid: d88672e96af6bd3478b413581b97de66, type: 3}
     choices: []
   - dialogueText: "Why hello again sweetie! Say, I was thinking- if I threw a roaring
       twenties party, would you come? Oh, it\u2019d be an absolute ball! Bright lights,
       delicious food, and sparkling flutes of champagne!"
+    parentEmote: {fileID: 60660449, guid: bb946a634f22f064e9eb4e009b4d16c4, type: 3}
     choices:
     - choiceText: I would attend any event held by such a captivating hostess such
         as yourself!
@@ -43,12 +47,15 @@ MonoBehaviour:
       nextIndex: 5
   - dialogueText: "Oh, you\u2026 [She Blushes] What a flirt! I can\u2019t wait to
       begin planning, I\u2019ll invite the whole neighborhood!"
+    parentEmote: {fileID: 848522790, guid: d88672e96af6bd3478b413581b97de66, type: 3}
     choices: []
   - dialogueText: "Ah, of course.. I suppose not everyone has time to party\u2026"
+    parentEmote: {fileID: -550435699, guid: a8b169d9dbfc39f44aa056a0588b2a4e, type: 3}
     choices: []
   - dialogueText: "Oh it's you again! My my, I only have so much candy to give out..
       unless it's something else you\u2019re looking for? [She looks at you with
       a teasing smile\u2026 and a hopeful glimmer in her eyes]"
+    parentEmote: {fileID: 60660449, guid: bb946a634f22f064e9eb4e009b4d16c4, type: 3}
     choices:
     - choiceText: "Your beauty simply draws me in\u2026 like a far away desire that
         I yearn to reach!"
@@ -61,7 +68,9 @@ MonoBehaviour:
   - dialogueText: "[She looks disappointed.] Only yearn to? When you get to my age,
       yearning and wishing only gets you so far\u2026 I need someone with more confidence
       than that."
+    parentEmote: {fileID: -550435699, guid: a8b169d9dbfc39f44aa056a0588b2a4e, type: 3}
     choices: []
   - dialogueText: '[Her eyes shine with delight.] My goodness! Such burning passion..
       I love it!!'
+    parentEmote: {fileID: 848522790, guid: d88672e96af6bd3478b413581b97de66, type: 3}
     choices: []

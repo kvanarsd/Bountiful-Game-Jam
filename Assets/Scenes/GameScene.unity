@@ -2760,6 +2760,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 379572925}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: parentNeutral
+      value: 
+      objectReference: {fileID: 587037546, guid: ea8621290c6140d40a49abc7c738065c, type: 3}
+    - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: parentDialogue
       value: 
       objectReference: {fileID: 11400000, guid: 10f6eaeb7f83eee47b7a7744454e04c6, type: 2}
@@ -4408,6 +4412,10 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 735122426}
+    - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: parentNeutral
+      value: 
+      objectReference: {fileID: -568071805, guid: 21ce8d0d27e86354f93082de296e4f47, type: 3}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: parentDialogue
       value: 
@@ -6160,7 +6168,7 @@ PrefabInstance:
     - target: {fileID: 8991885012277477293, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -68303024, guid: 9dae7682f366b41478ed5c3cb7610ca7, type: 3}
+      objectReference: {fileID: -568071805, guid: 21ce8d0d27e86354f93082de296e4f47, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7854,6 +7862,10 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 251578527}
+    - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: parentNeutral
+      value: 
+      objectReference: {fileID: 60660449, guid: bb946a634f22f064e9eb4e009b4d16c4, type: 3}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: parentDialogue
       value: 
@@ -9764,6 +9776,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1374559225}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: parentNeutral
+      value: 
+      objectReference: {fileID: -1586202612, guid: 666367a1e0699794e859591b9a884ecc, type: 3}
+    - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: parentDialogue
       value: 
       objectReference: {fileID: 11400000, guid: 34644fd5af5671146b1bac6fca5fd34f, type: 2}
@@ -10040,7 +10056,7 @@ PrefabInstance:
     - target: {fileID: 8991885012277477293, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1518370491, guid: e6c9c6cf44ec66b438633d00dd2489ae, type: 3}
+      objectReference: {fileID: -1586202612, guid: 666367a1e0699794e859591b9a884ecc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

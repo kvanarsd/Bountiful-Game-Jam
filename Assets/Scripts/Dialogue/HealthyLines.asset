@@ -16,6 +16,7 @@ MonoBehaviour:
   - dialogueText: "[The door swings open confidently. From behind the door emerges
       a\u2026 scientist? A lab coat could really mean anything\u2026] Hi, is there
       something you need?"
+    parentEmote: {fileID: -1586202612, guid: 666367a1e0699794e859591b9a884ecc, type: 3}
     choices:
     - choiceText: "Happy Halloween Miss\u2026 scientist!"
       hearts: -1
@@ -25,14 +26,17 @@ MonoBehaviour:
       nextIndex: 2
   - dialogueText: "oh\u2026 could you not tell I\u2019m a doctor? I knew I should\u2019ve
       changed out of my gym clothes.. [She looks dejected.]"
+    parentEmote: {fileID: -1580922965, guid: e62795cb5024f8c42bd003b4ea7d4d74, type: 3}
     choices: []
   - dialogueText: "[She smiles excitedly.] You got it! For some reason, people can\u2019t
       tell what I\u2019m dressed as.. It was either this or a gymnast.. I can\u2019t
       believe it still fits!"
+    parentEmote: {fileID: -1655556669, guid: e90fa21c4f13ef64b8b87fdd32ae107f, type: 3}
     choices: []
   - dialogueText: "[She stares at you with a wide expression and candy in her hair.]
       Did you see that kid just now? \"Veggies, are you trying to kill me?!\" It\u2019s
       organic candy kid. Who raised you?"
+    parentEmote: {fileID: -1580922965, guid: e62795cb5024f8c42bd003b4ea7d4d74, type: 3}
     choices:
     - choiceText: It could be worse! They could be choking on razor blades. How's
         that for poison?
@@ -44,7 +48,30 @@ MonoBehaviour:
       nextIndex: 5
   - dialogueText: "Razor blades? I- I can\u2019t handle this negative energy right
       now. I need to cleanse!! [She shuts the door on you.]"
+    parentEmote: {fileID: -1580922965, guid: e62795cb5024f8c42bd003b4ea7d4d74, type: 3}
     choices: []
   - dialogueText: "Thanks! Don\u2019t hesitate to ask me if you need anything\u2026
       checked out~ [She grins cheekily.]"
+    parentEmote: {fileID: -1655556669, guid: e90fa21c4f13ef64b8b87fdd32ae107f, type: 3}
+    choices: []
+  - dialogueText: "[She looks frantic, her son interjects but she shushes him.] EpiPen,
+      EpiPen, where's the Epipen?! My son came back with his mouth full of all sorts
+      of strange stuff. I told him I wanted to check before he ate n\u2019 he\u2019s
+      gone on and gobbled it all up. "
+    parentEmote: {fileID: -1580922965, guid: e62795cb5024f8c42bd003b4ea7d4d74, type: 3}
+    choices:
+    - choiceText: "I\u2019ll call 911! They\u2019ll be here in a flash."
+      hearts: -1
+      nextIndex: 7
+    - choiceText: "Snap out of it. Don\u2019t lose your head!"
+      hearts: 1
+      nextIndex: 8
+  - dialogueText: Does he look red to you too?! AAAAAHHH!! [She picks up her son
+      and leaves you in the dust.]
+    parentEmote: {fileID: -1580922965, guid: e62795cb5024f8c42bd003b4ea7d4d74, type: 3}
+    choices: []
+  - dialogueText: "[She looks at her son, he looks fine.] I- you\u2019re right. It\u2019s
+      not like it's life or death with his allergies after all. [She sighs in relief.]
+      Thanks, I don\u2019t know what I\u2019d do if you weren\u2019t here."
+    parentEmote: {fileID: -1586202612, guid: 666367a1e0699794e859591b9a884ecc, type: 3}
     choices: []

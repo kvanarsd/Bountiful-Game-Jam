@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public TMP_Text dialogueTextBox;
     public GameObject exitButton;
+    public Sprite parentNeutral;
 
     // parent script, used for playerNear
     public ParentScript pS;
@@ -46,13 +47,11 @@ public class DialogueManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && pS.playerNear && pS.childCount == 0 && plS.candyHeld >= 250){
             if(!lastLine && currentIndex < parentDialogue.lines.Length-1 && parentDialogue.lines.Length != 0){
-                Debug.Log("Showing dialogue");
                 if(dialoguePanel.activeInHierarchy) {
                     clearText();
                 } else {
                     plS.candyHeld -= 250;
                     dialoguePanel.SetActive(true);
-                    Debug.Log("setting panel active" + dialoguePanel.activeSelf + " " + dialoguePanel.activeInHierarchy);
                     Time.timeScale=0;
                     showLine();
                 }
@@ -62,7 +61,6 @@ public class DialogueManager : MonoBehaviour
 
     void showLine()
     {
-        Debug.Log("inserting line");
         insertText();
         
         if(lastLine)
@@ -70,7 +68,6 @@ public class DialogueManager : MonoBehaviour
             //show last line, then end
             exitButton.SetActive(true);
         } else {
-            Debug.Log("waiting");
             StartCoroutine(ShowChoices());
         }
     }
@@ -78,16 +75,15 @@ public class DialogueManager : MonoBehaviour
     IEnumerator ShowChoices()
     {
         yield return new WaitForSeconds(choiceDelay);
-        Debug.Log("showing choices");
         choice1.SetActive(true);
         choice2.SetActive(true);
     }
 
-    // inserts parent dialogue text and choice text if applicable
+    // inserts parent dialogue text, parent sprite, and choice text if applicable
     public void insertText()
     {
-        Debug.Log("inserting text");
         dialogueTextBox.text = parentDialogue.lines[currentIndex].dialogueText;
+        parentSprite.sprite = parentDialogue.lines[currentIndex].parentEmote;
 
         // inputs choice text if choices exist
         if(parentDialogue.lines[currentIndex].choices.Length != 0)
@@ -135,7 +131,7 @@ public class DialogueManager : MonoBehaviour
     public void CloseText()
     {
         clearText();
-        //Debug.Log(currentHearts);
+        parentSprite.sprite = parentNeutral;
         if(currentIndex < parentDialogue.lines.Length-1){
             if(currentIndex % 3 != 0){
                 currentIndex = currentIndex + (3-(currentIndex%3));
