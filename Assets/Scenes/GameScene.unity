@@ -778,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647358800637059225, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.00001525879
       objectReference: {fileID: 0}
     - target: {fileID: 1647358800637059225, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -890,11 +890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &176626484 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4791330776903550260, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
-  m_PrefabInstance: {fileID: 176626476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &176626485 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8991885012277477293, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
@@ -1272,6 +1267,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246708353}
   m_CullTransparentMesh: 1
+--- !u!1 &251578527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748540976317648217, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
+  m_PrefabInstance: {fileID: 176626476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &300419554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1645,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370990057}
   m_CullTransparentMesh: 1
+--- !u!1 &379572925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748540976317648217, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
+  m_PrefabInstance: {fileID: 503711570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &385094850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2740,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 503711576}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: choiceDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: choiceText1
       value: 
       objectReference: {fileID: 503711574}
@@ -2749,7 +2758,7 @@ PrefabInstance:
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: dialoguePanel
       value: 
-      objectReference: {fileID: 503711578}
+      objectReference: {fileID: 379572925}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: parentDialogue
       value: 
@@ -2884,7 +2893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647358800637059225, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.00001525879
       objectReference: {fileID: 0}
     - target: {fileID: 1647358800637059225, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2992,11 +3001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &503711578 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4791330776903550260, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
-  m_PrefabInstance: {fileID: 503711570}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &503711579 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8991885012277477293, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
@@ -4385,6 +4389,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1139748610}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: choiceDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: choiceText1
       value: 
       objectReference: {fileID: 1139748608}
@@ -4399,7 +4407,7 @@ PrefabInstance:
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: dialoguePanel
       value: 
-      objectReference: {fileID: 1139748612}
+      objectReference: {fileID: 735122426}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: parentDialogue
       value: 
@@ -4955,6 +4963,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696345066}
   m_CullTransparentMesh: 1
+--- !u!1 &735122426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748540976317648217, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
+  m_PrefabInstance: {fileID: 1139748604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &747889552
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,7 +6083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647358800637059225, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.00001525879
       objectReference: {fileID: 0}
     - target: {fileID: 1647358800637059225, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6206,11 +6219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1139748612 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4791330776903550260, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
-  m_PrefabInstance: {fileID: 1139748604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1139748613 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8991885012277477293, guid: d7ed46dce7f2726468d247dd1b498310, type: 3}
@@ -7827,6 +7835,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 176626482}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
+      propertyPath: choiceDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: choiceText1
       value: 
       objectReference: {fileID: 176626480}
@@ -7841,7 +7853,7 @@ PrefabInstance:
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: dialoguePanel
       value: 
-      objectReference: {fileID: 176626484}
+      objectReference: {fileID: 251578527}
     - target: {fileID: 7707951995029180765, guid: d4999a928ed37c042b961fc67845bc5b, type: 3}
       propertyPath: parentDialogue
       value: 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - dialogueText: '[Standing before you is a burly, tattooed man with a snarl carved
-      into his face. Scary!] Hey kiddo, get outta my driveway'
+      into his face. Scary!] Hey kiddo, get outta my driveway.'
     choices:
     - choiceText: can't. Got a hot mob boss in front of me ;)
       hearts: 1
@@ -60,5 +60,5 @@ MonoBehaviour:
     choices: []
   - dialogueText: '[He finishes wrenching a part into place, and turns to you] You''re
       more capable than I thought you were. Hey, you know what? Once I fix this baby
-      up, maybe we can go for a ride... [You see him blush slightly]'
+      up, maybe we can go for a ride... [You see him blush slightly.]'
     choices: []

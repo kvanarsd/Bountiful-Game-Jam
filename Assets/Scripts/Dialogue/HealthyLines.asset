@@ -14,15 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - dialogueText: "[The door swings open confidently. From behind the door emerges
-      a\u2026 scientist? A lab coat could really mean anything\u2026]"
+      a\u2026 scientist? A lab coat could really mean anything\u2026] Hi, is there
+      something you need?"
     choices:
-    - choiceText: "Happy Halloween! Miss\u2026 scientist?"
+    - choiceText: "Happy Halloween Miss\u2026 scientist!"
       hearts: -1
       nextIndex: 1
-    - choiceText: Happy Halloween Doc!
-      hearts: 0
+    - choiceText: Happy Halloween Miss... Doc!
+      hearts: 1
       nextIndex: 2
-  - dialogueText: "oh\u2026 could you not tell I\u2019m a doctor?"
+  - dialogueText: "oh\u2026 could you not tell I\u2019m a doctor? I knew I should\u2019ve
+      changed out of my gym clothes.. [She looks dejected.]"
     choices: []
-  - dialogueText: Happy Halloween to you too! Your ghost costume looks great!
+  - dialogueText: "[She smiles excitedly.] You got it! For some reason, people can\u2019t
+      tell what I\u2019m dressed as.. It was either this or a gymnast.. I can\u2019t
+      believe it still fits!"
+    choices: []
+  - dialogueText: "[She stares at you with a wide expression and candy in her hair.]
+      Did you see that kid just now? \"Veggies, are you trying to kill me?!\" It\u2019s
+      organic candy kid. Who raised you?"
+    choices:
+    - choiceText: It could be worse! They could be choking on razor blades. How's
+        that for poison?
+      hearts: -1
+      nextIndex: 4
+    - choiceText: "They oughta listen to the doctor! I\u2019d eat anything you tell
+        me too Doc~"
+      hearts: 1
+      nextIndex: 5
+  - dialogueText: "Razor blades? I- I can\u2019t handle this negative energy right
+      now. I need to cleanse!! [She shuts the door on you.]"
+    choices: []
+  - dialogueText: "Thanks! Don\u2019t hesitate to ask me if you need anything\u2026
+      checked out~ [She grins cheekily.]"
     choices: []

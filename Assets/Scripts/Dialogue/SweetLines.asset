@@ -25,7 +25,7 @@ MonoBehaviour:
       hearts: 1
       nextIndex: 2
   - dialogueText: "Oh my\u2026 er\u2026. I think.. I hear my darling calling for
-      me, sorry!"
+      me, sorry! [She slams the door on you.]"
     choices: []
   - dialogueText: "Aww, how sweet of you! I always wished I was born in this era..
       I bet I\u2019d throw just the grandest parties! [She looks starry eyed]"
