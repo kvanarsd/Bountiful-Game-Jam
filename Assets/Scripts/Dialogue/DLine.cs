@@ -6,6 +6,6 @@ using UnityEngine;
 public class DLine
 {
     [TextArea] public string dialogueText; //text
-    //public Sprite parentEmote; //associated sprite
+    public Sprite parentEmote; //associated sprite
     public DChoice[] choices; //choices, usually array length 2
 }

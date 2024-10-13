@@ -15,6 +15,7 @@ MonoBehaviour:
   lines:
   - dialogueText: '[Standing before you is a burly, tattooed man with a snarl carved
       into his face. Scary!] Hey kiddo, get outta my driveway.'
+    parentEmote: {fileID: 587037546, guid: ea8621290c6140d40a49abc7c738065c, type: 3}
     choices:
     - choiceText: can't. Got a hot mob boss in front of me ;)
       hearts: 1
@@ -25,12 +26,15 @@ MonoBehaviour:
   - dialogueText: WHAT?! [He looks nervous] No, why would anyone think-- sh#t, I
       forgot my costume! [He throws on a tacky princess dress] I'm meant to be a
       princess-- that fiery dragon out there is my son.
+    parentEmote: {fileID: -1330795240, guid: ec9294c670fda3846a139250870f7df9, type: 3}
     choices: []
   - dialogueText: '[He looks shocked and hurt] HEY hey hold on now that''s not necessary--
       you''re causing a scene-- STOP CRYING'
+    parentEmote: {fileID: 709821004, guid: a165d678fa55f5e4aaa4d4cd1a0e17e2, type: 3}
     choices: []
   - dialogueText: '[He puts down his wrench and wipes the sweat off his brow] You
       again? What now?'
+    parentEmote: {fileID: -662760081, guid: 7c056c84812e3b44bb7a9364aed0e529, type: 3}
     choices:
     - choiceText: hiya princess :) do you need saving?
       hearts: -1
@@ -40,14 +44,17 @@ MonoBehaviour:
       nextIndex: 5
   - dialogueText: Ha. Ha. [His face grows red, and a slight smirk cracks from his
       lips] You think you're funny, wise guy? Get out of my sight.
+    parentEmote: {fileID: 947890282, guid: edb18c98ae76ce44d98fdb504746f37f, type: 3}
     choices: []
   - dialogueText: '[His face grows slightly red, and he looks away bashfully] Well...
       yeah, what sorta dad would I be if I didn''t? The kid damn near idolizes me...
       I have to set a good example for ''im, after all. Blood should look out for
       each other, y''know?'
+    parentEmote: {fileID: -1330795240, guid: ec9294c670fda3846a139250870f7df9, type: 3}
     choices: []
   - dialogueText: Hey there buck. Perfect timing, come give me a hand with this will
       ya? [He tosses you a flashlight]
+    parentEmote: {fileID: 587037546, guid: ea8621290c6140d40a49abc7c738065c, type: 3}
     choices:
     - choiceText: '[Hold the flashlight shakily]'
       hearts: -1
@@ -57,8 +64,10 @@ MonoBehaviour:
       nextIndex: 8
   - dialogueText: '[He snatches the flashlight from you] The hells wrong with you?
       You''re gonna make me lose a finger! Piss off.'
+    parentEmote: {fileID: 709821004, guid: a165d678fa55f5e4aaa4d4cd1a0e17e2, type: 3}
     choices: []
   - dialogueText: '[He finishes wrenching a part into place, and turns to you] You''re
       more capable than I thought you were. Hey, you know what? Once I fix this baby
       up, maybe we can go for a ride... [You see him blush slightly.]'
+    parentEmote: {fileID: 587037546, guid: ea8621290c6140d40a49abc7c738065c, type: 3}
     choices: []
