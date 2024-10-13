@@ -12,4 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3398ca2fb12a7e449b7db45324538525, type: 3}
   m_Name: SourLines
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - dialogueText: '[Standing before you is a burly, tattooed man with a snarl carved
+      into his face. Scary!] Hey kiddo, get outta my driveway'
+    choices:
+    - choiceText: can't. Got a hot mob boss in front of me ;)
+      hearts: 1
+      nextIndex: 1
+    - choiceText: I'M SORRY SIR I'LL NEVER DO IT AGAIN AAAAHHH!!!!!!!!
+      hearts: -1
+      nextIndex: 2
+  - dialogueText: WHAT?! [He looks nervous] No, why would anyone think-- sh#t, I
+      forgot my costume! [He throws on a tacky princess dress] I'm meant to be a
+      princess-- that fiery dragon out there is my son.
+    choices: []
+  - dialogueText: '[He looks shocked and hurt] HEY hey hold on now that''s not necessary--
+      you''re causing a scene-- STOP CRYING'
+    choices: []
+  - dialogueText: '[He puts down his wrench and wipes the sweat off his brow] You
+      again? What now?'
+    choices:
+    - choiceText: hiya princess :) do you need saving?
+      hearts: -1
+      nextIndex: 4
+    - choiceText: It's admirable that you're willing to do this for your son!
+      hearts: 1
+      nextIndex: 5
+  - dialogueText: Ha. Ha. [His face grows red, and a slight smirk cracks from his
+      lips] You think you're funny, wise guy? Get out of my sight.
+    choices: []
+  - dialogueText: '[His face grows slightly red, and he looks away bashfully] Well...
+      yeah, what sorta dad would I be if I didn''t? The kid damn near idolizes me...
+      I have to set a good example for ''im, after all. Blood should look out for
+      each other, y''know?'
+    choices: []
+  - dialogueText: Hey there buck. Perfect timing, come give me a hand with this will
+      ya? [He tosses you a flashlight]
+    choices:
+    - choiceText: '[Hold the flashlight shakily]'
+      hearts: -1
+      nextIndex: 7
+    - choiceText: '[Hold the flashlight steadily]'
+      hearts: 1
+      nextIndex: 8
+  - dialogueText: '[He snatches the flashlight from you] The hells wrong with you?
+      You''re gonna make me lose a finger! Piss off.'
+    choices: []
+  - dialogueText: '[He finishes wrenching a part into place, and turns to you] You''re
+      more capable than I thought you were. Hey, you know what? Once I fix this baby
+      up, maybe we can go for a ride... [You see him blush slightly]'
+    choices: []

@@ -12,4 +12,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3398ca2fb12a7e449b7db45324538525, type: 3}
   m_Name: ChocolateLines
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - dialogueText: '[A man fully decked out in an old-fashioned Detective''s outfit
+      greets you at the door inquisitively] Hello there, can I help you?'
+    choices:
+    - choiceText: Quick detective, it's time to embark on a cinematic adventure full
+        of drama, thrills, and PASSIONATE KISSES!
+      hearts: -1
+      nextIndex: 1
+    - choiceText: I love detective movies! The old classics are the best!
+      hearts: 1
+      nextIndex: 2
+  - dialogueText: '[The man in front of you furrows his brow, looking exceedingly
+      uncomfortable] On days like this, there''s bound to be odd ones about... [He
+      slams the door. Maybe try not to be cringe next time, freak]'
+    choices: []
+  - dialogueText: '[He looks surprised then smiles shyly] You like it...? I put it
+      together myself, after all, I grew up on Sherlock Holmes and other mysteries.
+      Unfortunately, my daughter has heavier...(bloodier) tastes... [He seems to
+      grow pale just at the thought]'
+    choices: []
+  - dialogueText: Good Eve- wait I've forgotten something... [The man shuffles a
+      little awkwardly, then seems to come to a realization] Ah. Right. [He leaves
+      and returns shortly with a bushy fake mustache]
+    choices:
+    - choiceText: HELL YEAH, FACIAL HAIR! NOW WE'RE TALKING, DETECTIVE SEXYMAN!
+      hearts: -1
+      nextIndex: 4
+    - choiceText: Wow... a handsome mustached detective wrangling chaotic crime-doers!
+      hearts: 1
+      nextIndex: 5
+  - dialogueText: '[He winces at your uncontrollable excitement] ...perhaps I''ve
+      made a mistake... [He shuts the door in your face]'
+    choices: []
+  - dialogueText: '[He laughs heartily] I wrangle a little chaotic crime-doer without
+      this costume too! [His eyes widen with realization and he blushes] Wait, you
+      think I''m handsome?'
+    choices: []
+  - dialogueText: '[He nervously smiles as he opens the door] Hi again... Is there
+      some reason you keep coming around? Not that I mind, of course.'
+    choices:
+    - choiceText: YEAH. YOU'RE REALLY HOT. I GET LOTS OF (eye)CANDY AT YOUR HOUSE.
+      hearts: -1
+      nextIndex: 7
+    - choiceText: I really can't help myself! You and your daughter are so cute..
+        I'd love to take you both out sometime!
+      hearts: 1
+      nextIndex: 8
+  - dialogueText: ...please leave me alone [He closes the door, clearly rejecting
+      your overt harassment]
+    choices: []
+  - dialogueText: '[His eyes light up with excitement] Really? I know my daughter
+      might be a lot to handle to some.. So I really appreciate it. Maybe we could
+      even play Clue!'
+    choices: []
