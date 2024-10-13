@@ -91,7 +91,10 @@ public class ParentScript : MonoBehaviour
                 doorOpen = false;
                 spriteRenderer.sprite = closeSprite;
             }
-            info.enabled = false;
+            if (info)
+            {
+                info.enabled = false;
+            }
         } 
         if(person.tag == "Child"){
             childCount--;
