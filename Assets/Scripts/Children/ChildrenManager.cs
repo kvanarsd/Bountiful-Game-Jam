@@ -23,6 +23,7 @@ public class ChildrenManager : MonoBehaviour
     [SerializeField] private SpriteRenderer background;
     private List<Vector2> doors = new List<Vector2>();
     public TMP_Text text;
+    public TMP_Text info;
 
     // random timer for states
     private float timer;
@@ -324,7 +325,7 @@ public class ChildrenManager : MonoBehaviour
             {
                 script.horDirection = -1;
             }
-            child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed/2 * Time.deltaTime);
+            child.transform.position = Vector2.MoveTowards(child.transform.position, location, speed * Time.deltaTime);
             location = script.candy.transform.position;
             location += adjust;
             yield return null;
@@ -381,7 +382,7 @@ public class ChildrenManager : MonoBehaviour
         float timer = 0.35f;
         while (timer > 0f)
         {
-            child.transform.Translate(Vector3.right * 10 * script.horDirection * Time.deltaTime);
+            child.transform.Translate(Vector3.right * 5 * script.horDirection * Time.deltaTime);
 
             timer -= Time.deltaTime;
 

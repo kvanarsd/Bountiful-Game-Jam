@@ -7,17 +7,19 @@ public class ChildKick : MonoBehaviour
 {
     private ChildrenManager man;
     private TMP_Text text;
+    private TMP_Text info;
     // Start is called before the first frame update
     void Start()
     {
         man = FindObjectOfType<ChildrenManager>();
         text = man.text;
+        info = man.info;
         text.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && text)
+        if (collision.tag == "Player" && text && !info.enabled)
         {
             text.enabled = true;
         }

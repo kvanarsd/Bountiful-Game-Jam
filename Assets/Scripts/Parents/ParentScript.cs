@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class ParentScript : MonoBehaviour
     public bool playerNear;
 
     [SerializeField] private TMP_Text text;
+    [SerializeField] private TMP_Text info;
+    [SerializeField] private TMP_Text kick;
 
     //number of children until door opens
     [SerializeField] private int CHILDREN_ALLOWED;
@@ -48,13 +51,35 @@ public class ParentScript : MonoBehaviour
         }
         if(person.tag == "Child"){
             childCount++;
+            text.enabled = true;
             if (!doorOpen && childCount >= CHILDREN_ALLOWED) {
                 doorOpen = true;
-                spriteRenderer.sprite = openSprite;
-                text.enabled = true;
+                spriteRenderer.sprite = openSprite; 
             }
         }
         
+    }
+
+    private void OnTriggerStay2D(Collider2D person)
+    {
+        if (person.tag == "Player")
+        {
+            // info text
+            kick.enabled = false;
+            info.enabled = true;
+            if (childCount > 0)
+            {
+                info.text = "Too many kids around to talk";
+            }
+            else if (person.gameObject.GetComponent<PlayerScript>().candyHeld < 250)
+            {
+                info.text = "Not enough candy to talk (Cost 250)";
+            }
+            else
+            {
+                info.text = "Press [E] to Talk (Cost 250)";
+            }
+        }
     }
 
     //closes door when player leaves, or when all the children leave
@@ -66,6 +91,7 @@ public class ParentScript : MonoBehaviour
                 doorOpen = false;
                 spriteRenderer.sprite = closeSprite;
             }
+            info.enabled = false;
         } 
         if(person.tag == "Child"){
             childCount--;
