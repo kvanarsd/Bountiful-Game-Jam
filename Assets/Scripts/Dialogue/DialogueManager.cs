@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueTextBox;
     public GameObject exitButton;
     public Sprite parentNeutral;
+    [SerializeField] private TMP_Text heartCounter;
 
     // parent script, used for playerNear
     public ParentScript pS;
@@ -53,6 +54,7 @@ public class DialogueManager : MonoBehaviour
                     plS.candyHeld -= 250;
                     dialoguePanel.SetActive(true);
                     Time.timeScale=0;
+                    heartCounter.text = currentHearts + "";
                     showLine();
                 }
             }
@@ -61,6 +63,7 @@ public class DialogueManager : MonoBehaviour
 
     void showLine()
     {
+        heartCounter.text = currentHearts + "";
         insertText();
         
         if(lastLine)
