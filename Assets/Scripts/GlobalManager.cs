@@ -1,8 +1,11 @@
+//using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GlobalManager : MonoBehaviour
 {
@@ -26,6 +29,19 @@ public class GlobalManager : MonoBehaviour
 
     // game end
     public bool gameover = false;
+    public Canvas endMenu;
+    public GameObject Death;
+    public GameObject Love;
+    public Image lover;
+    public GameObject Kicked;
+    public GameObject King;
+    public GameObject Rejected;
+    public TMP_Text endCandy;
+
+    // ending choice variables
+    public int highCandy;
+    public int midCandy;
+    public List<DialogueManager> parents;
 
     // Start is called before the first frame update
     void Start()
@@ -36,36 +52,39 @@ public class GlobalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // pause game
-        if (titleCanvas.enabled || pauseCanvas.enabled)
+        if (!gameover)
         {
-            menu = true;
-            Time.timeScale = 0;
-        } 
+            // pause game
+            if (titleCanvas.enabled || pauseCanvas.enabled)
+            {
+                menu = true;
+                Time.timeScale = 0;
+            }
 
-        // check for dialog pause
-        if (Time.timeScale == 0 && !dialog && !menu)
-        {
-            dialog = true;
-            inGameCanvas.enabled = false;
+            // check for dialog pause
+            if (Time.timeScale == 0 && !dialog && !menu)
+            {
+                dialog = true;
+                inGameCanvas.enabled = false;
 
-        } else if (dialog && Time.timeScale != 0)
-        {
-            minute += 30;
-            AddClock();
-            dialog = false;
-            inGameCanvas.enabled = true;
+            }
+            else if (dialog && Time.timeScale != 0)
+            {
+                minute += 30;
+                AddClock();
+                dialog = false;
+                inGameCanvas.enabled = true;
+            }
+
+            if (menu && Time.timeScale != 1 && !titleCanvas.enabled && !pauseCanvas.enabled)
+            {
+                menu = false;
+                Time.timeScale = 1;
+            }
+
+            // add candy
+            candyCounter.text = player.candyHeld + " Candy";
         }
-
-        if (menu && Time.timeScale != 1 && !titleCanvas.enabled && !pauseCanvas.enabled)
-        {
-            menu = false;
-            Time.timeScale = 1;
-        }
-
-        // add candy
-        candyCounter.text = player.candyHeld + " Candy";
-
     }
 
     private IEnumerator OneMinute()
@@ -99,6 +118,60 @@ public class GlobalManager : MonoBehaviour
         if (hour >= end)
         {
             gameover = true;
+            Time.timeScale = 0;
+            EndGame();
         }
+    }
+
+    private void EndGame()
+    {
+        endCandy.text = candyCounter.text;
+
+        // check hearts
+        bool love = false;
+        bool attemptedLove = false;
+        foreach (DialogueManager parent in parents)
+        {
+            if(parent.currentHearts >= 3)
+            {
+                love = true;
+                lover = parent.parentSprite;
+                break;
+            }
+            if (parent.currentHearts > 0)
+            {
+                attemptedLove = true;
+            }
+        }
+
+        if(player.candyHeld < midCandy)
+        {
+            Death.SetActive(true);
+        }
+        if(player.candyHeld < highCandy)
+        {
+            Kicked.SetActive(true);
+        }
+        if(player.candyHeld >= highCandy)
+        {
+            King.SetActive(true);
+        }
+        if (love)
+        {
+            Love.SetActive(true);
+        }
+        if (player.candyHeld < highCandy && attemptedLove)
+        {
+            Kicked.SetActive(true);
+        }
+        if (player.candyHeld >= highCandy)
+        {
+            King.SetActive(true);
+        }
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
